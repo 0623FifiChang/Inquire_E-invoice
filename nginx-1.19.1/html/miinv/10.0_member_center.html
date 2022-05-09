@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>MiINV神資電子發票加值中心</title>
+    <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="./css/bootstrap-customize.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-customize.css" />
+    <link rel="stylesheet" href="./css/headerstyle.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+
+
+
+    <style>
+        .front-images {
+
+            /*       Header圖片高度 */
+            min-height: 300px;
+            /*       Header圖片URL  */
+            /* background-image: url("./images/banner_bg_img/bg_img_link_9.png"); */
+        }
+
+        .related_container {
+            height: 100%;
+            padding-top: 50px;
+            padding-bottom: 100px
+        }
+
+        .related_button {
+            font-size: 1.8rem;
+            height: 200px;
+            width: 100%;
+            border-width: 5px;
+            border-color: #C4E3E8;
+            color: #177588;
+        }
+
+        .related_button:hover {
+            background-color: #8AC5D1;
+            border-color: #177588;
+        }
+
+        .related_row {
+            height: 20%;
+            padding-bottom: 10px;
+        }
+
+        .related_col {
+            height: 100%;
+        }
+
+        .related_text {
+            color: #434343;
+        }
+
+        .blue_member_center_title {
+            font-family: Microsoft JhengHei !important;
+            color: #00aecb;
+            /* padding: 30px; */
+        }
+
+        .member_center_title {
+            color: #434343;
+            text-align: left;
+        }
+
+        .member_center_subtitle {
+            color: #6C6C6C;
+            text-align: left;
+        }
+    </style>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+
+</head>
+
+<body>
+	<!-- chatbot start -->
+    <script src="./js/ChatBotController.js"></script>
+    <!-- chatbot end -->
+
+    <!--    Nav Bar -->
+    <script src="./js/header_rwd.js"></script>
+    <!--       Header標題名稱 -->
+    <!-- <div class="front-images front-title">相關連結</div> -->
+    <div class="container related_container">
+        <form action="" method="GET">
+            <h3 class="blue_member_center_title text-center">會員中心</h3>
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col-10">
+                        <p class="member_center_title">MiINV導入進度</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-5">
+                                <p class="member_center_subtitle">導入階段</p>
+                                <hr width="898">
+                            </div>
+                            <div class="col-5">
+                                <p class="member_center_subtitle">階段百分比</p>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-5">
+                                <div>
+                                    <p id="ProgressStep" class="member_center_subtitle"></p>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div>
+                                    <p id="ProgressPercent" class="member_center_subtitle"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-10">
+                        <p class="member_center_subtitle">當月發票開立張數</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-5">
+                        <div>
+                            <p id="InvoiceNumber" class="member_center_subtitle"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="./js/footer.js"></script>
+    <!-- main script start -->
+    <script type="text/javascript">
+        // --- Is login or not? start ---
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "https://evweb.micloud.tw/tonr2/sparklr/api/checkjsid", //test environment
+                //url: "https://web.micloud.tw/tonr2/sparklr/api/checkjsid",
+            }).done(function (IsLogin) {
+                if (IsLogin.valid == 1) { //is login
+                    // --- Using email and uuid to get TaxID start ---
+                    //var email="egbert@test.cc";	//manual setting for test
+                    //var uuid="d4adcdf8-8e3e-11e8-9eb6-529269fb1459";	//manual setting for test
+                    var url = new URL(location.href);
+                    var email = url.searchParams.get('email');
+                    var uuid = url.searchParams.get('uuid');
+                    console.log("email : " + email);
+                    console.log("uuid : " + uuid);
+                    $.ajax({
+                        type: "GET",
+                        url: "https://evweb.micloud.tw/tonr2/sparklr/schoolTeacherInfo/" +
+                            email + "/" + uuid //test environment
+                        //url: "https://web.micloud.tw/tonr2/sparklr/schoolTeacherInfo/" + email + "/" + uuid
+                    }).done(function (UserInfo) {
+                        $.ajax({
+                            type: "GET",
+                            url: "https://evweb.micloud.tw/tonr2/sparklr/schools" //test environment
+                            //url: "https://web.micloud.tw/tonr2/sparklr/schools"
+                        }).done(function (SchoolList) {
+                            var TaxID;
+                            for (var i = 0; i < SchoolList.length; i++) {
+                                if (UserInfo[0].SCHOOL_SYSID == SchoolList[i].SYSID) {
+                                    TaxID = SchoolList[i].UNIFORM_NUM;
+                                    break;
+                                }
+                            }
+                            console.log("TaxID : " + TaxID);
+                            // --- Using Miinv API to get invoice number start ---
+                            var FormDataTemp = new FormData();
+                            //TaxID = "28933257";	//TaxID manual setting for test
+                            var NowDate = new Date();
+                            var YearMonth = NowDate.getFullYear() + (NowDate.getMonth() +
+                                1 < 10 ? "0" + (NowDate.getMonth() + 1) : "" + (
+                                    NowDate.getMonth() + 1));
+                            FormDataTemp.append("EntityInno", TaxID);
+                            FormDataTemp.append("InvoiceYearMonth", YearMonth);
+                            $.ajax({
+                                type: "POST",
+                                url: "https://evweb.micloud.tw/mitac-miinv/miinvApi/InvoicrDateTime", //test environment
+                                //url: "https://web.micloud.tw/mitac-miinv/miinvApi/InvoicrDateTime",
+                                data: FormDataTemp,
+                                contentType: false,
+                                processData: false
+                            }).done(function (MiinvApiResult) {
+                                $("#InvoiceNumber").html(MiinvApiResult.data.InvoiceCount +
+                                    " 張");
+                            });
+                            // --- Using Miinv API to get invoice number end ---
+
+                            // --- Using Sugar API to get progress status start ---
+                            // --- Get Sugar Api access token start ---
+                            $.ajax({
+                                type: "POST",
+                                url: "https://mitaccommunication.sugarondemand.com/rest/v10/oauth2/token",
+                                data: '{ "grant_type":"password", "client_id":"sugar", "client_secret":"", "username":"annhuang", "password":"ann06090", "platform":"custom" }',
+                                contentType: "application/json;charset=utf-8;"
+                            }).done(function (SugarTokenResult) {
+                                var AccessToken = SugarTokenResult.access_token;
+                                // --- Using TaxID to get CorpName start ---
+                                var CorpNameUrl =
+                                    "https://mitaccommunication.sugarondemand.com/rest/v10/Accounts?filter[0][taxidnumber_c]=";
+                                CorpNameUrl += TaxID;
+                                CorpNameUrl += "&fields=name";
+                                $.ajax({
+                                    type: "GET",
+                                    url: CorpNameUrl,
+                                    headers: {
+                                        'oauth-token': AccessToken
+                                    },
+                                    contentType: "application/json;charset=utf-8;"
+                                }).done(function (SugarCorpNameResult) {
+                                    var CorpName = SugarCorpNameResult.records[
+                                        0].name;
+                                    // --- Using CorpName to get progress status start ---
+                                    var ProgressStatusURL =
+                                        "https://mitaccommunication.sugarondemand.com/rest/v10/Contracts?fields=account_name,deploy_schedule_c,deploy_progress_c&filter[0][account_name]=";
+                                    ProgressStatusURL += CorpName;
+                                    $.ajax({
+                                        type: "GET",
+                                        url: ProgressStatusURL,
+                                        headers: {
+                                            'oauth-token': AccessToken
+                                        },
+                                        contentType: "application/json;charset=utf-8;"
+                                    }).done(function (
+                                        SugarProgessStatusResult
+                                    ) {
+                                        var ProgressPercent =
+                                            SugarProgessStatusResult
+                                            .records[0].deploy_progress_c;
+                                        var ProgressStep =
+                                            SugarProgessStatusResult
+                                            .records[0].deploy_schedule_c;
+                                        //console.log(ProgressPercent);
+                                        //console.log(ProgressStep);
+                                        $("#ProgressPercent").html(
+                                            ProgressPercent +
+                                            " %");
+                                        switch (ProgressStep) {
+                                            case "In service":
+                                                $(
+                                                    "#ProgressStep"
+                                                ).html(
+                                                    "服務上線使用"
+                                                );
+                                                break;
+                                            case "Authorization process":
+                                                $(
+                                                    "#ProgressStep"
+                                                ).html(
+                                                    "營業人財政部授權作業"
+                                                );
+                                                break;
+                                            case "Application form":
+                                                $(
+                                                    "#ProgressStep"
+                                                ).html(
+                                                    "營業人申請文件用印"
+                                                );
+                                                break;
+                                            case "Interface testing":
+                                                $(
+                                                    "#ProgressStep"
+                                                ).html(
+                                                    "系統介接輔導"
+                                                );
+                                                break;
+                                            case "System verification and testing":
+                                                $(
+                                                    "#ProgressStep"
+                                                ).html(
+                                                    "系統驗證及測試"
+                                                );
+                                                break;
+                                        }
+                                    });
+                                    // --- Using CorpName to get progress status end ---
+                                });
+                                // --- Using TaxID to get CorpName end ---
+                            });
+                            // --- Get Sugar Api access token end ---
+                            // --- Using Sugar API to get progress status end ---
+                        });
+                    });
+                    // --- --- Using email and uuid to get TaxID end ---
+                } else { //is not login
+                    alert("您未登入，請先登入再使用本功能");
+                    location.href = 'https://evweb.micloud.tw/sparklr2/login.jsp';
+                }
+            });
+        });
+        // --- Is login or not? end ---
+    </script>
+    <!-- main script end -->
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+/* 在此撰寫每個專案都會寫入的CSS */
+
+/* 星號代表選擇畫面上所有的元素 */
+
+* {
+    /* 設定所有方框的width,height值設定以border為主 */
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    /* 
+       * 選擇器內的border: 1px solid black
+       讓所有元素都能有邊框顯示，以方便排版，
+       僅在開發排版時使用，平常請註解掉
+    */
+    /* border: 1px solid black; */
+}

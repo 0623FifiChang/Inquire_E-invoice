@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>MiINV神資電子發票加值中心</title>
+    <!-- 共用 -->
+    <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="./css/bootstrap-customize.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap2.css" />
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-customize.css" />
+    <link rel="stylesheet" href="./css/headerstyle.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+
+    <!-- 使用font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB"
+        crossorigin="anonymous"></script>
+
+    <script src="./js/welcome_index.js"></script>
+
+    <style type="text/css">
+        .front-images {
+
+            /*       Header圖片高度 */
+            min-height: 450px;
+            /* width: 100%; */
+            /*       Header圖片URL  */
+            /* background-image: url('./images/banner_bg_img/banner_index_2.png'); */
+        }
+
+        @media screen and (min-width: 1270px) {
+            .front-images {
+                background-image: url('./images/banner_bg_img/banner_index_2.png');
+                min-height: 450px;
+            }
+        }
+
+        @media screen and (max-width: 1270px) {
+            .front-images {
+                background-image: url('./images/banner_bg_img/banner_index_2.png');
+                min-height: 450px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .front-images {
+                background-image: url('./images/banner_bg_img/index_banner_med.png');
+                min-height: 450px;
+            }
+        }
+
+        @media screen and (max-width: 375px) {
+            .front-images {
+                background-image: url('./images/banner_bg_img/index_banner_min.png');
+                min-height: 300px;
+            }
+        }
+
+        }
+    </style>
+</head>
+
+<body>
+	<!-- chatbot start -->
+    <script src="./js/ChatBotController.js"></script>
+    <!-- chatbot end -->
+	
+    <!--    Nav Bar -->
+    <script src="./js/header_rwd.js"></script>
+    <!--       Header標題名稱 -->
+    <div class="front-images front-title"></div>
+    <!-- <div class="bg bg img">
+        <img src="" id="bg-img">
+    </div> -->
+
+    <div class="container related_container">
+        <!-- 5 Feactures -->
+        <section id="introSection" class="py-3">
+            <h3 class="blue_index_title section-title text-center mt-5">神通用心 五大保證</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <!-- icon使用primary配色，並且設定3倍上下padding -->
+                        <div class="icon text-secondary py-5">
+                            <i class="far fa-hdd fa-5x" aria-hidden="true"></i>
+                        </div>
+                        <h5 class="blue_index_title text-center">好安心</h5>
+                        <p>集團企業國際資安保證</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="icon text-secondary py-5">
+                            <i class="far fa-window-restore fa-5x" aria-hidden="true"></i>
+                        </div>
+                        <h5 class="blue_index_title text-center">好專心</h5>
+                        <p>軟硬體統包,不推卸責任</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="icon text-secondary py-5">
+                            <i class="far fa-comment fa-5x" aria-hidden="true"></i>
+                        </div>
+                        <h5 class="blue_index_title text-center">好開心</h5>
+                        <p>免費專業客服諮詢</p>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <div class="icon text-secondary py-5">
+                            <i class="far fa-handshake fa-5x"></i>
+                        </div>
+                        <h5 class="blue_index_title text-center">好貼心</h5>
+                        <p>專業到府安裝</p>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <div class="icon text-secondary py-5 ">
+                            <i class="far fa-thumbs-up fa-5x" aria-hidden="true"></i>
+                            <!-- <i class="fa fa-thermometer-empty fa-3x" aria-hidden="true"></i> -->
+                        </div>
+                        <h5 class="blue_index_title text-center padding=80px">好放心</h5>
+                        <p>價格透明不隱藏</p>
+                    </div>
+                </div>
+            </div>
+            <!-- MiINV電子發票加值中心服務範圍 -->
+            <h3 class="blue_index_title section-title text-center mt-5">MiINV電子發票加值中心服務範圍</h3>
+            <h4 class="section-title text-center">企業輔導一站式服務</h4>
+            <div class="row align-items-center pt-5">
+                <div class="col-md-3 col-sm-6 align-self-center" id="index-cis-1">
+                    <div class="row">
+                        <div class="col-10 px-0">
+                            <div class="homepage-icon flex-center">輔導申請
+                                <div id="index-show-1">
+                                    <a>電子發票服務申請書
+                                        <br>服務契約
+                                        <br>帳號申請表
+                                        <br>授權同意書(給記帳業者或POS/ERP業者)
+                                        <br>電子發票字軌申請書
+                                        <br>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class=" text-center text-space text-color pt-4">財政部/國稅局申請</div>
+                            <div class="icon-more" id="more1"></div>
+                        </div>
+                        <div class="col-1 align-self-center">
+                            <div class="text-center">
+                                <img class="rounded" id="image-1" alt="" src="./images/button_next.svg" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 align-self-center" id="index-cis-2">
+                    <div class="row">
+                        <div class="col-10 px-0">
+                            <div class="homepage-icon flex-center">發票取號配號設定
+                                <div id="index-show-2">
+                                    <a>電子發票字軌申請書
+                                        <br>其他固定營業場所明細總表
+                                        <br>電子發票預估使用量，申請發票組數
+                                        <br>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class=" text-center text-space text-color pt-4">電子發票取號/配號設定</div>
+                            <div class="icon-more" id="more2"></div>
+                        </div>
+                        <div class="col-1 align-self-center">
+                            <div class="text-center">
+                                <img class="rounded" id="image-1" alt="" src="./images/button_next.svg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 align-self-center" id="index-cis-3">
+                    <div class="row">
+                        <div class="col-10 px-0">
+                            <div class="homepage-icon flex-center">開立接收電子發票</div>
+                            <div class=" text-center text-space text-color pt-4">B2B/B2C電子發票開立/接收</div>
+                            <div class="icon-more" id="more3"></div>
+                            <div id="index-show-3">
+                                <a>產製MIG XML格式上傳財政部
+                                    <br>B2B交換
+                                    <br>B2B存證
+                                    <br>B2C存證
+                                    <br>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-1 align-self-center">
+                            <div class="text-center">
+                                <img class="rounded" id="image-1" alt="" src="./images/button_next.svg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 align-self-center" id="index-cis-4">
+                    <div class="row">
+                        <div class="col-10 px-0">
+                            <div class="homepage-icon flex-center">列印/掃描</div>
+                            <div class=" text-center text-space text-color pt-4">列印/掃描相關硬體設備</div>
+                            <div class="icon-more" id="more4"></div>
+                            <div id="index-show-4">
+                                <a>熱感式印表機-B2B & B2C存證發票列印(電子發票證明聯/折讓證明單證明聯)二維條碼掃描器-讀取共通性載具</a>
+                            </div>
+                        </div>
+                        <div class="col-1 align-self-center">
+                            <div class="text-center">
+                                <img class="rounded" id="image-1" alt="" src="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 解決方案 -->
+            <h3 class="blue_index_title section-title text-center mt-5">解決方案</h3>
+            <div>
+                <h4 class="subtitle-index text-center">電子發票服務模組</h4>
+                <div class="index-content-img text-center">
+                    <img src="./images/MiINV_module.png" width=80% alt="">
+                </div>
+            </div>
+            <h4 class="subtitle-index text-center">電子發票服務專案</h4>
+            <div>
+                <table id="form_index">
+                    <tr>
+                        <th style="width: 95px;">服務方案
+                        </th>
+                        <th class="text-center">加值中心</th>
+                        <th class="text-center">雲端租賃</th>
+                        <th class="text-center">自建方案</th>
+                    </tr>
+                    <tr class="">
+                        <td class="text-center">產品特性
+                        </td>
+                        <td>透過神通加值中心公有雲將電子發票傳送到財政部平台</td>
+                        <td>在神通私有雲租賃虛擬機，將電子發票傳送至財政部平台</td>
+                        <td>在企業端環境建立軟硬體系統，將電子發票傳送至財政部平台</td>
+                    </tr>
+                    <tr class="alt text-center">
+                        <td>服務模式
+                        </td>
+                        <td>B2B 與 B2C</td>
+                        <td>B2B 與 B2C</td>
+                        <td>B2B 與 B2C</td>
+                    </tr>
+                    <tr class="text-center">
+                        <td>計費方式
+                        </td>
+                        <td>一次性設定費用
+                            <br> （申請及建置)
+                            <br> 月租費
+                            <br> （實際發票數量計費）</td>
+                        <td>一次性設定費用
+                            <br> (申請及建置)
+                            <br> 電子發票系統費用
+                            <br> 虛擬機租賃費用
+                            <br> 營運管理費用</td>
+                        <td>一次性設定費用
+                            <br> （申請及建置）
+                            <br> 電子發票系統費用
+                            <br>軟硬體費用(主機)
+                            <br>維護費用</td>
+                    </tr>
+                    <tr class="alt text-center">
+                        <td>加購產品
+                        </td>
+                        <td>熱感機
+                            <br> 條碼掃描器
+                            <br> 熱感紙</td>
+                        <td>熱感機
+                            <br> 條碼掃描器
+                            <br> 熱感紙</td>
+                        <td>熱感機
+                            <br> 條碼掃描器
+                            <br> 熱感紙</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <!-- Ｗarranty -->
+        <section id="featuresSection" class="py-5 bg-white text-dark">
+            <h3 class="blue_index_title section-title text-center mt-3">神通電子發票加值中心國際資安認證</h3>
+            <div class="container-fluid py-5">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5 text-center">
+                        <img src="./images/ISO_C.jpg" width=50% alt="">
+                    </div>
+                    <div class="col-md-5 text-center">
+                        <img src="./images/ISO_E.jpg" width=50% alt="">
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- 使用輪播(Carousel)元件放入以下兩頁內容 -->
+    <div id="carouselId" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselId" data-slide-to="1"></li>
+        </ol>
+        <div class="row">
+            <div class="col">
+                <h3 class="blue_index_title section-title text-center mt-2">成功案例</h3>
+            </div>
+        </div>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <!-- 第一頁 內容 -->
+                <div class="row justify-content-center">
+                    <div class="col-sm-2">
+                        <img src="./images/logo_ONSYS.png" width=100% alt="">
+                    </div>
+                    <div class="col-sm-6">
+                        <h3 class="title">聯宿資訊</h3>
+                        <p>選擇可靠、有政府信賴的神通資科是我們當初的考量，使用到現在都讓我們非常滿意！大幅提升了我們服務的效率，所以也會大力推薦給我們的銀行客戶</p>
+                    </div>
+                </div>
+                <!-- 第一頁 內容 結束 -->
+            </div>
+            <div class="carousel-item">
+                <!-- 第二頁 -->
+                <div class="row justify-content-center">
+                    <div class="col-sm-2">
+                        <img src="./images/logo_claridy solution_2.png" width=100% alt="">
+                    </div>
+                    <div class="col-sm-6">
+                        <h3 class="title">艾迪訊科技</h3>
+                        <p>大力推薦神資的電子發票加值服務中心!我們規劃未來逐步整合訂單、出貨、驗收、發票、收款流程等，希望 做到全程無紙化，提高公司競爭力! </p>
+                    </div>
+                </div>
+                <!-- 第二頁 結束 -->
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <script type="text/javascript" src="./js/footer.js"></script>
+
+
+</body>
+
+</html>

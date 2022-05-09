@@ -1,0 +1,89 @@
+.header-row {
+	margin: 0px;
+}
+
+.header-images {
+	width: 100%;
+	min-height: 200px;
+	background-image: url("../images/background_img_FAQ_7.jpg");
+}
+
+.fn-images {}
+
+.logo {
+	max-width: 380px !important;
+	/* padding: 10px; */
+}
+
+.marginright {
+	margin-right: 200px;
+}
+
+.textleft {
+	text-align: left;
+}
+
+#title {
+	font-size: 2rem;
+	text-align: center;
+	color: white;
+	font-family: Microsoft JhengHei !important;
+}
+
+/* .dropdown:hover>.dropdown-menu {
+	display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+	pointer-events: none;
+} */
+
+.nav_bar_size {
+	font-size: 1.2rem;
+	color: #535353 !important;
+}
+
+.icon_nav {
+	color: #535353 !important;
+	/* width: 30px; */
+	height: 30px;
+}
+
+/* #image-1 {
+	width: 10px;
+	text-align: center;
+	margin-bottom: 85px;
+} */
+
+ul {
+	display: inline-block;
+	margin: opx;
+}
+
+li {
+	list-style-type: none;
+	float: left;
+	text-align: center;
+}
+
+li a {
+	display: block;
+	padding: 20px;
+	font-weight: bold;
+	font-size: 1.3rem;
+	color: #343434;
+	font-family: Microsoft JhengHei !important;
+	text-decoration: none;
+}
+
+li a:hover {
+	color: #ff630d;
+}
+
+svg:hover path {
+	fill: #ff630d;
+}
+
+.navbar-nav li:hover .dropdown-menu {
+	display: block;
+}

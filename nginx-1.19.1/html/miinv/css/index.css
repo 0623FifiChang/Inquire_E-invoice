@@ -1,0 +1,204 @@
+.text-space {
+	white-space: nowrap;
+}
+
+.text-color {
+	color: #00aecb;
+}
+
+.flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#index-show-1 {
+	font-size: 0.8rem;
+	color: white;
+	opacity: 0;
+	border-radius: 5px;
+	background-color: #00aecb;
+	position: absolute;
+	width: 100%;
+	height: 150px;
+	padding: 10px;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+	color: white;
+}
+
+#index-show-2 {
+	font-size: 0.8rem;
+	color: white;
+	opacity: 0;
+	border-radius: 5px;
+	background-color: #00aecb;
+	position: absolute;
+	width: 100%;
+	padding: 10px;
+	top: 0px;
+	height: 150px;
+	left: 0px;
+	z-index: 1;
+}
+
+#index-show-3 {
+	font-size: 0.8rem;
+	color: white;
+	opacity: 0;
+	border-radius: 5px;
+	background-color: #00aecb;
+	position: absolute;
+	width: 100%;
+	padding: 10px;
+	height: 150px;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+}
+
+#index-show-4 {
+	font-size: 0.8rem;
+	color: white;
+	opacity: 0;
+	border-radius: 5px;
+	background-color: #00aecb;
+	position: absolute;
+	width: 100%;
+	padding: 10px;
+	top: 0px;
+	height: 150px;
+	left: 0px;
+	z-index: 1;
+}
+
+#image-1 {
+	width: 10px;
+	text-align: center;
+	margin-bottom: 85px;
+}
+
+#carouselId {
+	height: 500px;
+}
+
+.icon {
+	color: #00aecb !important;
+}
+
+.flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.homepage-icon {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	color: #00aecb;
+	width: 150px;
+	height: 150px;
+	margin: auto;
+	border: 2px;
+	border-style: solid;
+	border-radius: 50%;
+	border-color: #00aecb;
+}
+
+#icon-1 {
+	color: white;
+	opacity: 0;
+	border-radius: 5px;
+	background-color: #00aecb;
+	position: absolute;
+	width: 100%;
+	padding: 5px;
+	top: 0px;
+	left: 0px;
+}
+
+.header-images {
+	background-image: none !important;
+}
+
+.marginTop {
+	margin-top: 80px;
+}
+
+#form_index {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	width: 100%;
+	border-collapse: collapse;
+	/* text-align: center; */
+}
+
+#form_index td,
+#form_index th {
+	font-size: 1em;
+	border: 1px solid #ffffff;
+	padding: 3px 7px 2px 7px;
+}
+
+#form_index th {
+	font-size: 1.1em;
+	text-align: left;
+	padding-top: 5px;
+	padding-bottom: 4px;
+	background-color: #00aecb;
+	color: #ffffff;
+}
+
+#form_index tr.alt td {
+	color: #000000;
+	background-color: #e5f8fc;
+}
+
+.icon-more {
+	margin-top: 10px;
+	background: url(../images/button_more_test_3.svg) no-repeat;
+	width: 100%;
+	height: 20px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	margin-bottom: 20px;
+}
+
+.icon-cancel {
+	transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	margin-top: 10px;
+	transition: 1s;
+	-moz-transition: 1s;
+	-webkit-transition: 1s;
+	-o-transition: 1s;
+	background: url(../images/button_cancel_test_3.svg) no-repeat;
+	width: 100%;
+	height: 20px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.logo {
+	max-width: 380px !important;
+	/* padding: 20px; */
+}
+
+/* For width smaller than 305px: */
+
+.signin_title {
+	font-family: Microsoft JhengHei !important;
+	font-size: 3rem;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	padding-left: 50px;
+}

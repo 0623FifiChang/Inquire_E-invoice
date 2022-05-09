@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>MiINV神資電子發票加值中心</title>
+    <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./js/data.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+    <script type="text/javascript" src="./js/popper.min.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap-customize.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-customize.css" />
+    <link rel="stylesheet" href="./css/headerstyle.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/registerstyle.css">
+    <link rel="stylesheet" href="./css/progressbar.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+
+    <script type="text/javascript" src="./js/time.js"></script>
+    <script type="text/javascript" src="./js/jquery.twzipcode.min.js"></script>
+
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+
+    <style>
+        input[type=number] { 
+         -moz-appearance:textfield; 
+         }
+         input[type=number]::-webkit-inner-spin-button, 
+         input[type=number]::-webkit-outer-spin-button { 
+         -webkit-appearance: none; 
+         margin: 0; 
+         }
+         .size1{font-size: 5px;
+         }
+         .border-color {
+         border-color: #C4E3E8;
+         }
+         .front-images {
+         /*       Header圖片高度 */
+         min-height: 0px;
+         /*       Header圖片URL  */
+         background-image: none;
+         } 
+         .background-blue {
+         background-color: #F1F9FF;
+         }
+      </style>
+
+    <script>
+        // alert("setaddm")
+            function setaddm(p1) {
+            document.getElementById("service_total_month").value = p1;
+        var $input = $(this);
+
+if ($("#datepicker1").val() != "") {
+
+    var str1 = $("#datepicker1").val();
+    var year = str1.substr(0, 4);
+    var month = str1.substr(5, 2);
+    var day = str1.substr(8, 2);
+
+
+    var addm = p1;
+    
+
+    var y = Math.floor((parseInt(addm) + parseInt(month)) / 12);
+
+    var m = ((parseInt(addm) + parseInt(month)) % 12);
+    if (m == 0) {
+        m = 12;
+        y = y - 1;
+    }
+    var Fy = 0;
+    var Fm = 0;
+    Fy = parseInt(year) + y;
+    Fm = m;
+    if (Fm == 2 && day > 28) {
+        day = 28;
+    } else if ((Fm == 4 || Fm == 6 || Fm == 9 || Fm == 11)) {
+        if (day > 30) {
+            day = 30;
+        }
+    }
+    if (Fm < 10) {
+        Fm = "0" + Fm;
+    }
+    var date2 = Fy + "-" + Fm + "-" + day;
+    $("#datepicker2").val(date2)
+    } else {
+    $("#service_total_month").val("");
+    }    
+        }
+            
+    </script>
+
+</head>
+
+<body>
+	<!-- chatbot start -->
+    <script src="./js/ChatBotController.js"></script>
+    <!-- chatbot end -->
+	
+    <script src="./js/header_rwd.js"></script>
+    <div class="mt-5 container-fluid">
+        <div class="row mx-0 w-100 justify-content-center">
+            <div class="col justify-content-center">
+                <ul class="nav progressbar text-center justify-content-center">
+                    <li class="active">服務方案訂購申請書</li>
+                    <li>電子發票字軌號碼</li>
+                    <li>電子發票承諾書</li>
+                    <li>感熱紙切結書</li>
+                    <li>電子發票字軌號碼明細總表</li>
+                    <li>委託加值服務</li>
+                    <li>系統自行檢測表</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <h3 class="blue_index_title text-center mt-5">MiINV電子發票加值服務中心服務方案訂購申請書暨服務契約</h3>
+    <div class="background-blue w-100">
+        <div class="container">
+            <!-- 1.MiINV電子發票加值服務中心服務方案訂購申請書暨服務契約 -->
+            <div id="step-1">
+                <div class="background-blue px-3 py-3">
+                    <h4 class="register_subtitle mt-5 background-color:#e6e6e6">申請用戶基本資料</h4>
+                    <hr>
+                    <div class="row">
+                        <div class="col-4 related_col">
+                            <label for="number"><a style="color: red;">*</a>公司統一編號</label>
+                            <input class="form-control  w-75" type="number" id="c_taxid" maxlength="8" autofocus="autofocus"
+                                required="required" min="1">
+                            <div class="invalid-feedback">統一編號格式錯誤</div>
+                            <br>
+                        </div>
+                        <div class="col-4 related_col">
+                            <div class="mr-5 mb-3">
+                                <a style="color: red;">*</a>營業人類型
+                                <div class="form-check form-check-inline float-right">
+                                    <label class="form-check-label checkbox-inline"><input class="form-check-input"
+                                            type="checkbox" name="c_type" id="c_type1" value="B2B">
+                                        B2B
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline float-right">
+                                    <label class="form-check-label checkbox-inline"><input class="form-check-input"
+                                            type="checkbox" name="c_type" id="c_type2" value="B2C">
+                                        B2C
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="hide" id="error-c-type" style="color: #dc3545;font-size: 80%;margin-top:0.25rem;margin-bottom: 0.25rem">營業人類型不可為空</div>
+                            <div class="form-check">
+                                <label class="form-check-label" for="is_pos">
+                                    <input class="form-check-input" type="checkbox" value="y_pos" id="is_pos">使用自有ERP/POS系統(B2C預設使用)</label>
+                            </div>
+                        </div>
+                        <div class="col-4 related_col">
+                            <label for="number"><a style="color: red;">*</a>公司稅籍編號</label>
+                            <input class="form-control w-75" type="number" id="c_taxnumber" maxlength="9" required="required">
+                            <div class="invalid-feedback">稅籍編號格式錯誤</div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-4 related_col">
+                            <label for="number"><a style="color: red;">*</a>公司中文全名</label>
+                            <input class="form-control w-75" type="text" id="c_fullname" required="required">
+                            <div class="invalid-feedback">公司中文全名格式錯誤</div>
+                            <br>
+                        </div>
+                        <div class="col-4 related_col">
+                            <label><a style="color: red;">*</a>所屬國稅局</label>
+                            <br>
+                            <input class="form-control w-75" type="text" id="c_group" required="required">
+                            <div class="invalid-feedback">國稅局格式錯誤</div>
+                            <br>
+                        </div>
+                        <div class="col-4 related_col">
+                            <label for="number"><a style="color: red;">*</a>分局/稽徵所</label>
+                            <input class="form-control w-75" type="text" id="c_group2" required="required">
+                            <div class="invalid-feedback">分局/稽徵所格式錯誤</div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div id="twzipcode"><a style="color: red;">*</a>公司稅籍地址<br>
+                                <input id="address" name="address" type="text" class="form-control">
+                            </div>
+                            <div class="invalid-feedback">公司稅籍地址格式錯誤</div>
+                        </div>
+                    </div>
+                    <input class="form-control w-100" type="text" id="c_address" hidden="hidden">
+                    <div class="row mt-2">
+                        <div class="col">
+                            <div id="twzipcode2"><a style="color: red;">*</a>公司營業地址<br>
+                                <input id="address2" name="address" type="text" class="form-control">
+                            </div>
+                            <div class="invalid-feedback">公司營業地址格式錯誤</div>
+                        </div>
+                    </div>
+                    <input class="form-control w-100" type="text" id="c_address2" hidden="hidden">
+                    <hr>
+                    <div class="row">
+                        <div class="col-4 related_col">
+                            <label for="number"><a style="color: red;">*</a>公司負責人姓名</label>
+                            <input class="form-control w-75" type="text" id="manager_name" required="required">
+                            <div class="invalid-feedback">負責人姓名格式錯誤</div>
+                            <br>
+                        </div>
+                        <div class="col-4 related_col">
+                            <label for="number">公司負責人電話/分機</label>
+                            <input class="form-control w-75" type="text" id="manager_phone" placeholder="(區碼)電話#分機">
+                            <div class="invalid-feedback">負責人電話/分機格式錯誤</div>
+                            <br>
+                        </div>
+                        <div class="col-4 related_col">
+                            <label for="number">公司負責人傳真</label>
+                            <input class="form-control w-75" type="text" id="manager_fax">
+                            <div class="invalid-feedback">負責人傳真格式錯誤</div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 related_col">
+                            <label for="number">公司負責人手機</label>
+                            <input class="form-control w-75" type="text" id="manager_cellphone">
+                            <div class="invalid-feedback">負責人手機格式錯誤</div>
+                            <br>
+                        </div>
+                        <div class="col-4 related_col">
+                            <label for="number">公司負責人電子郵件帳號</label>
+                            <input class="form-control w-75" type="text" id="manager_email">
+                            <div class="invalid-feedback">負責人電子郵件格式錯誤</div>
+                            <br>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-4 related_col">
+                            <label for="number"><a style="color: red;">*</a>系統管理員姓名</label>
+                            <input class="form-control w-75" type="text" id="mis_name" required="required">
+                            <div class="invalid-feedback">系統管理員姓名格式錯誤</div>
+                            <br>
+                        </div>
+                        <div class="col-4 related_col">
+                            <label for="number"><a style="color: red;">*</a>系統管理員電話/分機</label>
+                            <input class="form-control w-75" type="text" id="mis_phone" required="required" placeholder="(區碼)電話#分機">
+                            <div class="invalid-feedback">系統管理員電話/分機格式錯誤</div>
+                            <br>
+                        </div>
+                        <div class="col-4 related_col">
+                            <label for="number">系統管理員傳真</label>
+                            <input class="form-control w-75" type="text" id="mis_fax">
+                            <div class="invalid-feedback">系統管理員傳真格式錯誤</div>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 related_col">
+                            <label for="number">系統管理員手機</label>
+                            <input class="form-control w-75" type="text" id="mis_cellphone">
+                            <div class="invalid-feedback">系統管理員手機格式錯誤</div>
+                            <br>
+                        </div>
+                        <div class="col-4 related_col">
+                            <label for="number"><a style="color: red;">*</a>系統管理員電子郵件帳號</label>
+                            <input class="form-control w-75" type="text" id="mis_email" required="required">
+                            <div class="invalid-feedback">系統管理員電子郵件帳號格式錯誤</div>
+                            <br>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-3 related_col">
+                            <label for="number"><a style="color: red;">*</a>財會部門聯絡人姓名</label>
+                            <input class="form-control w-75" type="text" id="accounting_name" required="required">
+                            <div class="invalid-feedback">財會部門聯絡人姓名格式錯誤</div>
+                            <br>
+                            <input id="get_misdata" type="checkbox">同系統管理員
+                            <br>
+                        </div>
+                        <div class="col-3 related_col">
+                            <label for="number"><a style="color: red;">*</a>財會部門聯絡人電話/分機</label>
+                            <input class="form-control w-75" type="text" id="accounting_phone" required="required"
+                                placeholder="(區碼)電話#分機">
+                            <div class="invalid-feedback">財會部門聯絡人電話/分機格式錯誤</div>
+                            <br>
+                        </div>
+                        <div class="col-3 related_col">
+                            <label for="number">財會部門聯絡人傳真</label>
+                            <input class="form-control w-75" type="text" id="accounting_fax">
+                            <div class="invalid-feedback">財會部門聯絡人傳真格式錯誤</div>
+                            <br>
+                        </div>
+                        <div class="col-3 related_col">
+                            <label for="number"><a style="color: red;">*</a>財會部門聯絡人電子郵件帳號</label>
+                            <input class="form-control w-75" type="text" id="accounting_email" required="required">
+                            <div class="invalid-feedback">財會部門聯絡人電子郵件帳號格式錯誤</div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="container background-blue mt-3 py-1">
+                    <div class="row border-color mx-1 " style="border-style: solid;">
+                        <div class="col">
+                            <h4 class="register_subtitle mt-3 border:1px">合約期間及費用總額</h4>
+                            <hr>
+                            <div class="row align-self-center mb-2">
+                                <div class="col">
+                                    <!-- 日期選擇器 -->
+                                    <label for="datepicker1">合約起訖日</label>
+                                    <input class="form-control" type="text" id="datepicker1">&nbsp;至&nbsp;
+                                    <input class="form-control" type="text" id="datepicker2" disabled="disabled">
+                                    <p id="comment_date">備註：合約起始日請以訂購日起算三個月內預估正式上線之日期，合約截止日則會根據所選擇的方案由系統自動帶出。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container background-blue py-3">
+                    <div class="row">
+                        <div class="col text-center">
+                            <a class="text-center" data-toggle="modal" data-target="#exampleModalCenter" class="register_subtitle mt-5 border:1px"
+                                style="text-decoration:underline;font-weight:bold;text-align:center;margin:auto">服務方案訂購及費用</a>
+                            <!-- 企業吃到飽 -->
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">MiINV電子發票加值服務中心服務方案訂購申請書暨服務契約
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img class="img-fluid" src="./images/contract_1.jpg" alt="Responsive image">
+                                            <img class="img-fluid" src="./images/contract_2.jpg" alt="Responsive image">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 彈跳 -->
+                            <div class="row mx-1 mt-2 align-items-center border-color" style="border-style: solid;">
+                                <div class="col px-0">
+                                    <div id="check-service" class="btn-group-toggle " data-toggle="buttons">
+                                        <label class="btn btn-outline-info active my-2 font-size" onclick="setaddm(12)"
+                                            style="width: 20%;">
+                                            <!-- onclick="alert(12);setaddm(12)" -->
+                                            <input type="radio" name="che-cke" id="" autocomplete="off" value="3400"
+                                                onchange="service_change()" checked="checked">
+                                            企業吃到飽一年
+                                            <br>NT$3,400元(未稅)
+                                        </label>
+                                        <label class="btn btn-outline-info my-2 font-size" onclick="setaddm(12)" style="width: 20%">
+                                            <input type="radio" name="che-cke" id="" autocomplete="off" value="6400"
+                                                onchange="service_change()">
+                                            企業吃到飽一年(含輔導)
+                                            <br>NT$6,400元(未稅)
+                                        </label>
+                                        <label class="btn btn-outline-info my-2 font-size" onclick="setaddm(36)" style="width: 20%">
+                                            <input type="radio" name="che-cke" id="" autocomplete="off" value="7200"
+                                                onchange="service_change()">
+                                            企業吃到飽三年
+                                            <br> NT$7,200元(未稅)
+                                        </label>
+                                        <label class="btn btn-outline-info my-2 font-size" onclick="setaddm(36)" style="width: 20%">
+                                            <input type="radio" name="che-cke" id="" autocomplete="off" value="10200"
+                                                onchange="service_change()">
+                                            企業吃到飽三年(含輔導)
+                                            <br> NT$10,200元(未稅)
+                                        </label>
+                                        <label class="btn btn-outline-info my-2 font-size" onclick="setaddm(12)" style="width: 20%">
+                                            <input type="radio" name="che-cke" id="" autocomplete="off" value="29400"
+                                                onchange="service_change()">
+                                            企業自動開一年
+                                            <br>NT$29,400元(未稅)
+                                        </label>
+                                        <label class="btn btn-outline-info my-2 font-size" onclick="setaddm(12)" style="width: 20%">
+                                            <input type="radio" name="che-cke" id="" autocomplete="off" value="32400"
+                                                onchange="service_change()">企業自動開一年(含輔導)
+                                            <br>NT$32,400元(未稅)
+                                        </label>
+                                        <label class="btn btn-outline-info my-2 font-size" onclick="setaddm(39)" style="width: 20%">
+                                            <input type="radio" name="che-cke" id="" autocomplete="off" value="46200"
+                                                onchange="service_change()">企業自動開三年
+                                            <br>NT$46,200元(未稅)
+                                        </label>
+                                        <label class="btn btn-outline-info my-2 font-size" onclick="setaddm(39)" style="width: 20%">
+                                            <input type="radio" name="che-cke" id="" autocomplete="off" value="49200"
+                                                onchange="service_change()">
+                                            企業自動開三年(含輔導)
+                                            <br>NT$49,200元(未稅)
+                                        </label>
+                                        <label class="btn btn-outline-info my-2 font-size" onclick="setaddm(12)" style="width: 20%">
+                                            <input type="radio" name="che-cke" id="" autocomplete="off" value="13200"
+                                                onchange="service_change()">
+                                            門市吃到飽一年
+                                            <br>NT13,200元(未稅)
+                                        </label>
+                                        <label class="btn btn-outline-info my-2 font-size" onclick="setaddm(12)" style="width: 20%">
+                                            <input type="radio" name="che-cke" id="" autocomplete="off" value="16200"
+                                                onchange="service_change()">
+                                            門市吃到飽一年(含輔導)
+                                            <br>NT$16,200元(未稅)
+                                        </label>
+                                        <label class="btn btn-outline-info my-2 font-size" onclick="setaddm(36)" style="width: 20%">
+                                            <input type="radio" name="che-cke" id="" autocomplete="off" value="16000"
+                                                onchange="service_change()">
+                                            門市吃到飽三年
+                                            <br>NT$16,000元(未稅)
+                                        </label>
+                                        <label class="btn btn-outline-info my-2 font-size" onclick="setaddm(36)" style="width: 20%">
+                                            <input type="radio" name="che-cke" id="" autocomplete="off" value="19000"
+                                                onchange="service_change()">
+                                            門市吃到飽三年(含輔導)
+                                            <br>NT$19,000元(未稅)
+                                        </label>
+                                        <label class="btn btn-outline-info my-2 font-size" onclick="setaddm(12)" style="width: 20%">
+                                            <input type="radio" name="che-cke" id="option1" autocomplete="off" value="39200"
+                                                onchange="service_change()">門市自動開一年
+                                            <br>NT$39,200元(未稅)
+                                        </label>
+                                        <label class="btn btn-outline-info my-2 font-size" onclick="setaddm(12)" style="width: 20%">
+                                            <input type="radio" name="che-cke" id="" autocomplete="off" value="42200"
+                                                onchange="service_change()">門市自動開一年(含輔導)
+                                            <br>NT$42,200元(未稅)
+                                        </label>
+                                        <label class="btn btn-outline-info my-2 font-size" onclick="setaddm(39)" style="width: 20%">
+                                            <input type="radio" name="che-cke" id="" autocomplete="off" value="54000"
+                                                onchange="service_change()">門市自動開三年
+                                            <br>NT$54,000元(未稅)
+                                        </label>
+                                        <label class="btn btn-outline-info my-2 font-size" onclick="setaddm(39)" style="width: 20%">
+                                            <input type="radio" name="che-cke" id="" autocomplete="off" value="57000"
+                                                onchange="service_change()">門市自動開三年(含輔導)
+                                            <br>NT$57,000元(未稅)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row  mx-1 border-color register_row align-items-center " style="border-style: solid;">
+                        <div class="col mx-2">
+                            <div class="row">
+                                <div class="col">
+                                    <h4 class="register_title_btn border:1px register_btn＿padding">加購項目</h4>
+                                </div>
+                            </div>
+                            <div class="row justify-content-between">
+                                <div class="col-4">
+                                    <div class="card bg-light mb-3" style="max-width: 18rem;">
+                                        <div class="card-header">專用熱感機</div>
+                                        <div class="card-body">
+                                            <p>NT$9,800元/台(未稅)</p>
+                                            <label>需求數量(不含方案內的一台)</label>
+                                            <input class="form-control" type="number" id="add-1c" min="1" name="add-1c">
+                                            <div class="mt-5">合計(未稅)<span style="float: right;color: red;"><a>$</a><a
+                                                        id="add-1">0</a></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card bg-light mb-3" style="max-width: 18rem;">
+                                        <div class="card-header">熱感紙</div>
+                                        <div class="card-body">
+                                            <p>NT$1,500元/箱 (未稅)</p>
+                                            <label>需求數量(一箱含30捲熱感紙)</label>
+                                            <input class="form-control" type="number" id="add-2c" min="1" name="add-2c">
+                                            <div class="mt-5">合計(未稅)<span style="float: right;color: red;"><a>$</a><a
+                                                        id="add-2">0</a></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="card bg-light mb-3" style="max-width: 18rem;">
+                                        <div class="card-header">二維條碼掃瞄器 </div>
+                                        <div class="card-body">
+                                            <p>NT$6,800元/箱 (未稅)</p>
+                                            <label>需求數量</label>
+                                            <input class="form-control" type="number" id="add-3c" min="1" name="add-3c">
+                                            <div class="mt-5">合計(未稅)<span style="float: right;color: red;"><a>$</a><a
+                                                        id="add-3">0</a></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col" style="border-style: solid;">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="register_title_btn border:1px register_btn＿padding">加購項目商品指送用戶聯絡資訊
+                                                (送貨前會與用戶確認時間)
+                                            </h5>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label>指送地址</label>
+                                            <div class="radio">
+                                                <label><input type="radio" name="address-eq-address" value="1">同系統管理員</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="address-eq-address" value="2">同財會聯絡人</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="address-eq-address" value="3">其他
+                                                    <input class="form-control hide" type="text" id="address-eq-address-ans">
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="name">收貨人</label>
+                                            <div class="radio">
+                                                <label><input type="radio" name="receiver-eq-receiver" value="1">同系統管理員</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="receiver-eq-receiver" value="2">同財會聯絡人</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="receiver-eq-receiver" value="3">其他
+                                                    <input class="form-control hide" type="text" id="receiver-eq-receiver-ans">
+                                                </label>>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <label for="name">聯絡電話</label>
+                                            <div class="radio">
+                                                <label><input type="radio" name="phonenum-eq-phonenum" value="1">同系統管理員</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="phonenum-eq-phonenum" value="2">同財會聯絡人</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="phonenum-eq-phonenum" value="3">其他
+                                                    <input class="form-control hide" type="text" id="phonenum-eq-phonenum-ans">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row register_row">
+                                <div class="col register_col" style="border: 0.5px;border-color: #7e7e7e;border-style: solid;">
+                                    <h5 class="register_title_btn border:1px register_btn＿padding">系統介接方案額外客製費</h5>
+                                    <hr>
+                                    <p>針對選用系統介接方案的用戶，神通將在用戶訂購前，評估用戶現有系統， 判斷是否需額外客製整合模組，並提供報價。
+                                    </p>
+                                    <div class="form-inline">
+                                        <label for="number">合計(未稅)</label>
+                                        <input class="form-control" type="number" min="1" id="service_customer_fee">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col register_col"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 加購項目 -->
+                <div class="container">
+                </div>
+                <!-- 合約期間及費用總額 -->
+                <div class="container background-blue mt-3 py-1">
+                    <div class="row border-color mx-1 " style="border-style: solid;">
+                        <div class="col">
+                            <h4 class="register_subtitle mt-3 border:1px">費用總額</h4>
+                            <hr>
+                            <div class="row justify-content-between">
+                                <div class="col-6" hidden="hidden">
+                                    <label for="number">合約期數&ensp;&ensp;</label>
+                                    <input class="form-control" type="text" id="service_total_month">&nbsp;個月
+                                </div>
+                                <div class="col-6">
+                                    <label style="float: left;" for="number">費用總額(未稅)
+                                        <input type="number" id="total-count" disabled="disabled"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--         step-1 -->
+                <div class="py-5 row justify-content-center">
+                    <div class="col-6">
+                    </div>
+                    <div class="col-6 text-center">
+                        <input id="submit" type="submit" class="btn btn-primary activity_button" value="NEXT">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="step-2">
+            <!-- 2.電子發票字軌號碼 -->
+            <div class="container">
+                <section id="introSection" class="py-1">
+                    <div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>電子發票字軌號碼(含電子發票整合服務平台功能啟用)申請書</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="text-center bg-light">
+                                    <td>受理機關</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col text-center">財政部</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <label for=""></label>
+                                                <input class="form-control" type="text" id="p2-group" name="" disabled="disabled">國稅局
+                                            </div>
+                                            <div class="col">
+                                                <label for=""></label>
+                                                <input class="form-control" type="text" id="p2-group2" name="" disabled="disabled">分局/稽徵所
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="text-center bg-light">
+                                    <td>申請項目</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col">電子發票字軌號碼「每期」預估使用數量
+                                            </div>
+                                            <div class="col-3">
+                                                <select class="form-control" id="p2_select1" onchange="p2_change1()">
+                                                    <option value="1">一般稅額計算</option>
+                                                    <option value="2">特種稅額計算</option>
+                                                    <option value="3">一般稅額與特種稅額</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-2">
+                                                <select class="form-control" id="p2_select2">
+                                                    <option value="1">首次申請</option>
+                                                    <option value="2">增加</option>
+                                                    <option value="2">減少</option>
+                                                    <option value="2">停止使用</option>
+                                                </select>
+                                            </div>
+                                            <div class="col">
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control" id="step2-3" placeholder=""
+                                                        aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text" id="basic-addon2"><a style="color: red;">*</a>組數(50號/組)</span>
+                                                    </div>
+                                                    <div class="invalid-feedback">預估使用數量</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                <tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col"><a style="color: red;">*</a>配號方式</div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="p2_select3">
+                                                        <option value="0">請選擇配號方式</option>
+                                                        <option value="1">年配</option>
+                                                        <option value="2">期配</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">選擇配號方式</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" id="e-platform">
+                                                    <label class="form-check-label" for="e-platform">申請整合服務平台帳號、密碼：【詳說明四】（請務必填寫本申請書「聯絡方式」之「電子郵件信箱」</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hide" id="e-platform2">
+                                    <td>
+                                        <div class="row">
+                                            <div class="col">
+                                                <select class="form-control" id="p2_select5" onchange="p2_change1()">
+                                                    <option value="1">無工商憑證但需取用電子發票字軌號碼</option>
+                                                    <option value="2">無工商憑證僅接收或查詢電子發票配</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-check">
+                                                    <input type="checkbox" id="step2-6" class="form-check-input" id="va-Check1">
+                                                    <label class="form-check-label" for="va-Check1">委任加值服務中心下載電子發票字軌號碼相關業務【詳說明五】（請務必填寫本申請書「加值服務中心」各欄項資料）</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="text-center bg-light">
+                                    <td>營業人申請電子發票字軌號碼應檢具文件(如為電子發票字軌號碼數量異動申請者，本欄免填附)</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <div class="card bg-light mb-3 h-100">
+                                                    <div class="card-header">必備文件</div>
+                                                    <div class="card-body">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="p2-c1"
+                                                                disabled="disabled">
+                                                            <label class="form-check-label" for="p2-b1">使用電子發票承諾書</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="p2-c2"
+                                                                disabled="disabled">
+                                                            <label class="form-check-label" for="p2-b2">「電子發票證明聯」樣張</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="p2-c3"
+                                                                disabled="disabled">
+                                                            <label class="form-check-label" for="p2-b3">「電子發票證明聯」二維條碼加密驗證資訊解密驗證成功證明〔僅列印格式二者免附〕
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="p2-c4"
+                                                                disabled="disabled">
+                                                            <label class="form-check-label" for="p2-b4">電子發票開立系統自行檢測表</label>
+                                                        </div>
+                                                        <hr>
+                                                        <select class="form-control mb-1" id="" onchange="" disabled="disabled">
+                                                            <option value="">整合服務平台</option>
+                                                            <option value="" selected="selected">加值服務中心平台</option>
+                                                        </select>由○整合服務平台或○加值服務中心平台開立，格式符合電子發票實施作業要點規定者免附【詳說明七】
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="card bg-light mb-3 h-100">
+                                                    <div class="card-header">傳輸方式</div>
+                                                    <div class="card-body ">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="p2-c5"
+                                                                disabled="disabled">
+                                                            <label class="form-check-label" for="p2-c5">使用Turnkey方式傳輸資料者，自整合服務平台取得之上線通行碼：
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="p2-c6"
+                                                                disabled="disabled">
+                                                            <label class="form-check-label" for="p2-c6">若為加值服務中心或其他固定營業場所由總機構代傳，請填加值服務中心或總機構名稱或統一編號：<a
+                                                                    style="text-decoration:underline;">53000774</a>及其稅籍編號：<a
+                                                                    style="text-decoration:underline;">720426412</a></label>
+                                                        </div>
+                                                        <div class="form-check hide" id="p2-b-1">
+                                                            <input type="checkbox" class="form-check-input" id="p2-c7"
+                                                                disabled="disabled">
+                                                            <label class="form-check-label" for="p2-c7">自整合服務平台開立電子發票</label>
+                                                            <hr>
+                                                            【詳說明八】
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="card bg-light mb-3">
+                                                    <div class="card-header">其他文件</div>
+                                                    <div class="card-body">
+                                                        <div class="form-check hide" id="b2-c-1">
+                                                            <input type="checkbox" class="form-check-input" id="p2-c8"
+                                                                disabled="disabled">
+                                                            <label class="form-check-label">檢附可接受買受人以共通性載具索取及愛心碼捐贈電子發票之證明文件</label>
+                                                            <div class="form-check">
+                                                                <label class="checkbox-inline">
+                                                                    <input type="checkbox" value="" disabled="disabled"
+                                                                        checked="checked">網頁畫面
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input type="checkbox" value="" disabled="disabled">交易明細
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input type="checkbox" value="" disabled="disabled">其他
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-check hide" id="b2-c-2">
+                                                            <input type="checkbox" class="form-check-input" id="p2-c9"
+                                                                disabled="disabled">
+                                                            <label class="form-check-label">具備讀取共通性載具之條碼掃瞄機具或設備證明文件</label>
+                                                            <div class="form-check">
+                                                                <label class="checkbox-inline">
+                                                                    <input type="checkbox" value="" disabled="disabled"
+                                                                        checked="checked">掃瞄槍
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input type="checkbox" value="" disabled="disabled">螢幕輸入
+                                                                </label>
+                                                                <label class="checkbox-inline">
+                                                                    <input type="checkbox" value="" disabled="disabled">其他
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="p2-c11"
+                                                                disabled="disabled">
+                                                            <label class="form-check-label">第三方公正檢驗機關（構）出具檢測報告</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="p2-c12"
+                                                                disabled="disabled">
+                                                            <label class="form-check-label">電子發票證明聯採用感熱紙切結書</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="p2-c13">
+                                                            <label class="form-check-label">總機構代其他固定營業場所申請電子發票字軌號碼明細總表</label>
+                                                        </div>
+                                                        <div class="form-check hide" id="p2-c-7">
+                                                            <input type="checkbox" class="form-check-input" id="p2-c14">
+                                                            <label class="form-check-label">電子發票載具發行機構核准證明【詳說明十】</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="p2-c15"
+                                                                disabled="disabled">
+                                                            <label class="form-check-label">委託加值服務中心事務委任書【詳說明五】</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="p2-c15"
+                                                                disabled="disabled">
+                                                            <label class="form-check-label">「營業人銷貨退回、進貨退出或折讓證明單」樣張【詳說明九】</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td rowspan="4">申請人</td>
+                                    <td>營業人名稱</td>
+                                    <td colspan="3">
+                                        <label for="number"></label>
+                                        <input type="text" id="p2_c_fullname" disabled="disabled">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>統一編號</td>
+                                    <td>
+                                        <label for="number"></label>
+                                        <input type="text" id="p2_c_taxid" name="number" disabled="disabled">
+                                    </td>
+                                    <td>稅籍編號</td>
+                                    <td>
+                                        <label for="number"></label>
+                                        <input type="text" id="p2_c_taxnumber" name="number" disabled="disabled">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>營業地址</td>
+                                    <td colspan="3">
+                                        <label for="number"></label>
+                                        <input type="text" id="p2_c_address2" name="number" disabled="disabled">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>負責人姓名</td>
+                                    <td colspan="3">
+                                        <label for="number"></label>
+                                        <input type="text" id="p2_c_manager_name" name="number" disabled="disabled">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">聯絡方式</td>
+                                    <td>聯絡人姓名</td>
+                                    <td colspan="3">
+                                        <label for="number"></label>
+                                        <input type="text" id="p2_c_accounting_name" name="number" disabled="disabled">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>聯絡人電話</td>
+                                    <td>
+                                        <label for="number"></label>
+                                        <input type="text" id="p2_c_accounting_phone" name="number" placeholder="(區碼)電話#分機"
+                                            disabled="disabled">
+                                    </td>
+                                    <td>傳真號碼</td>
+                                    <td>
+                                        <label for="number"></label>
+                                        <input type="text" id="p2_c_accounting_fax" name="number" disabled="disabled">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>通訊地址</td>
+                                    <td colspan="3">
+                                        <label for="number"></label>
+                                        <input type="text" id="p2_c_address3" name="number" disabled="disabled">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>電子郵件信箱</td>
+                                    <td colspan="3">
+                                        <label for="number"></label>
+                                        <input type="text" id="p2_c_accounting_email" name="number" disabled="disabled">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3">事務所(代理人)
+                                    </td>
+                                    <td>事務所名稱</td>
+                                    <td colspan="3">
+                                        <label for="number"></label>
+                                        <input type="text" id="step2-office-name">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>統一編號</td>
+                                    <td colspan="3">
+                                        <label for="number"></label>
+                                        <input type="text" id="step2-office-taxid">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>聯絡人姓名</td>
+                                    <td>
+                                        <label for="number"></label>
+                                        <input type="text" id="step2-ct-name">
+                                    </td>
+                                    <td>事務所電話</td>
+                                    <td>
+                                        <label for="number"></label>
+                                        <input type="text" id="step2-ct-phone" placeholder="(區碼)電話#分機">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="4">委任加值服務中心<br>(無委任則免填委任期間及委任項目)
+                                    </td>
+                                    <td>加值服務中心名稱</td>
+                                    <td>神通資訊股份有限公司</td>
+                                    <td>聯絡電話</td>
+                                    <td>02-2657-6666分機7600</td>
+                                </tr>
+                                <tr>
+                                    <td>統一編號</td>
+                                    <td>53000774</td>
+                                    <td>稅籍編號</td>
+                                    <td>720426412</td>
+                                </tr>
+                                <tr>
+                                    <td>委任期間</td>
+                                    <td colspan="3"><input type="text" id="datepicker3">至<input type="text" id="datepicker6">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>委任項目</td>
+                                    <td colspan="3">下載電子發票配號期別：<input type="text" id="datepicker4">至<input type="text"
+                                            id="datepicker7">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>依據</td>
+                                    <td colspan="4">電子發票實施作業要點</td>
+                                </tr>
+                                <tr>
+                                    <td>申請日期</td>
+                                    <td colspan="4">
+                                        <input type="text" id="datepicker5">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+            <div class="container">
+                <section>
+                    <h3 class="text-left mt-1">補充說明：</h3>
+                    <!-- <h4 class="register_subtitle mt-5 background-color:#e6e6e6">申請用戶基本資料</h4>\ -->
+                    <p>一、營業人開立電子發票，應向稽徵機關申請配發電子發票字軌號碼，並於核准後，至整合服務平台（網址：https://www.einvoice.nat.gov.tw/）取號；如原核准之字軌號碼不足使用時，亦同。
+                        <br>
+                        <br>二、營業人之總機構及其他固定營業場所之電子發票字軌號碼，得由總機構檢附「其他固定營業場所明細總表」，一併申請配賦予總機構，營業人應於次期開始十日內，依規定格式將其使用之本期字軌、起訖號碼及空白未使用之字軌號碼傳輸至整合服務平台。
+                        <br>
+                        <br>三、「前2項申請事項或所附證明文件經稽徵機關核准後，如有變更應主動向所在地主管稽徵機關申請變更。
+                        <br>
+                        <br>四、營業人開立電子發票，使用Turnkey方式傳輸資料者，應與整合服務平台進行上線檢測（相關申請資訊可洽客服專線0800-521988或至整合服務平台【Turnkey專區】查詢），完成檢測者會由整合服務平台提供一組上線通行碼【請填「電子發票整合服務平台Turnkey服務申請表」】；如有變更加值服務中心名義者，應填具本申請書向稽徵機關核備。
+                        <br>
+                        <br>五、營業人自行發行電子發票載具者，應先向財政部財政資訊中心提出電子發票載具發行機構申請，經審核通過者將配賦一組載具類別代碼。
+                        <br>
+                        <br>六、本次僅申請開立B2B或B2G電子發票者，爾後倘需開立B2C電子發票時，仍應依規定檢附必備文件及其他應檢具文件向稽徵機關申請，如遇電子發票字軌不敷使用，可同時申請增加配號。
+                        <br>
+                        <br>七、僅供無工商憑證之營業人申請配發整合服務平台之帳號、密碼，將於作業完成後以E-mail方式寄送至上述指定之電子郵件信箱。營業人於收到帳號、密碼後，請即至整合服務平台開通啟用。此帳號密碼可供營業人於整合服務平台取用電子發票字軌號碼及接收或查詢電子發票，至開立、傳輸電子發票等作業仍應依規定使用憑證或電子簽章方式辦理。
+                        <br>
+                        <br>八、僅供無法申請工商憑證之營業人以書面（附委任書）委任加值服務中心由整合服務平台下載配號資訊，如有延長委任期間或變更委任之加值服務中心者，應填具本申請書向稽徵機關申請異動，終止本項委任時，由營業人自行至整合服務平台以統一編號、帳號及密碼登入，並進行終止委任作業。
+                        <br>
+                        <br>九、如買賣雙方同意以網站、電話或其他電子方式合意銷貨退回、進貨退出或折讓，除使用加值服務中心系統或依電子發票實施作業要點第5章規定使用整合服務平台者免附「營業人銷貨退回、進貨退出或折讓證明單」樣張外，惟應檢附相關證明文件提供審查。另依電子發票實施作業要點第3點規定，應依統一發票使用辦法第7條第4項及第5項規定之時限將該證明單資訊傳輸至整合服務平台存證。
+                        <br>
+                        <br>十、營業人自行發行電子發票載具者，應先向財政部財政資訊中心提出電子發票載具發行機構申請，經審核通過者將配賦一組載具類別代碼。
+                    </p>
+                </section>
+            </div>
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-6 text-center">
+                        <button id="back2" type="button" class="btn btn-primary activity_button">BACK</button>
+                    </div>
+                    <div class="col-6 text-center">
+                        <button id="next2" type="button" class="btn btn-primary activity_button">NEXT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="step-3">
+            <!-- 3.電子發票承諾書 -->
+            <div class="container register_form_container">
+                <h3 class="text-center mt-2 mb-5">使用電子發票承諾書</h3>
+                <section id="introSection" class="py-1">
+                    <p>本公司(商號) 住商實業股份有限公司 願遵守「電子發票實施作業要點」及相關法令規範，同時承諾下列事項：
+                        <br>
+                        <br> 一、依規定時限內將本公司（商號）總機構及其他固定營業場所之電子發票資訊(含開立、作廢、銷貨退回或折讓等)上傳至電子發票整合服務平台存證。
+                        <br>
+                        <br> 二、依規定格式將使用之本期字軌、起訖號碼及空白未使用之字軌號碼，於次期開始十日內傳輸至整合服務平台。
+                        <br>
+                        <br> 三、遵守個人資料保護法並維護消費者隱私權，如違反相關法律致第三人受有損害，本公司(商號)須自負一切法律責任，概與財政部無關。
+                        <br>
+                        <br> 四、配合推廣電子發票相關措施(如捐贈方式及共通性載具種類新增等)，及相關電子發票作業之調整，並於財政部規定之期間內完成相關配合事項。
+                        <br>
+                        <br> 五、於申請所列資料及附件均屬實，絕無虛偽匿飾，如有變更將主動函報主管稽徵機關備查。
+                        <br>
+                        <br> 以上承諾事項，如未確實遵守辦理，本公司(商號)願負完全之法律責任，特立此承諾書為憑。
+                    </p>
+                </section>
+                <br>
+                <section id="introSection" class="py-1">
+                    <p>此致
+                        <label for="number">財政部</label>
+                        <input type="text" id="p3_group" name="number" disabled="disabled">國稅局
+                        <label for="number"></label>
+                        <input type="text" id="p3_group2" name="number" disabled="disabled">分局/稽徵所
+                        <br>
+                        <br><label for="number">營業人名稱(蓋章)：</label>
+                        <input type="text" id="p3_c_fullname" name="number" disabled="disabled">
+                        <br>
+                        <br>營業人統一編號&nbsp;：
+                        <label for="number"></label>
+                        <input type="text" id="p3_c_taxid" name="number" disabled="disabled">
+                        <br>
+                        <br>
+                        <label for="number">負責人姓名(蓋章)：</label>
+                        <input type="text" id="p3_c_manager_name" name="number" disabled="disabled">
+                        <br>
+                        <a class="getdate"></a>
+                    </p>
+                </section>
+            </div>
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-6 text-center">
+                        <button id="back3" type="button" class="btn btn-primary activity_button">BACK</button>
+                    </div>
+                    <div class="col-6 text-center">
+                        <button id="next3" type="button" class="btn btn-primary activity_button">NEXT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="step-4">
+            <!-- 4.感熱紙切結書 -->
+            <div class="container register_form_container">
+                <h3 class="text-center mt-2 mb-5">電子發票證明聯採用感熱紙切結書</h3>
+                <!-- <h4 class="register_subtitle mt-5 background-color:#e6e6e6">申請用戶基本資料</h4>\ -->
+                <section id="introSection" class="py-1">
+                    <p>茲證明本公司(行號)電子發票證明聯採用之感熱紙確實符闔第三方公正檢驗機關（構）出具檢測報告：
+                        <br>
+                        <br>1.檢測單位：SGS Taiwain Ltd.台灣檢驗科技股份有限公司
+                        <br>
+                        <br>2.送驗廠商：利百代國際實業股份有限公司
+                        <br>
+                        <br>3.報告號碼：HLO0446A/2015
+                        <br>
+                        <br>4.產品名稱：PT-421
+                        <br>
+                        <br>5.產品型號：PT-421
+                        <br>
+                        <br>6.日期：2015年11月05日
+                    </p>
+                </section>
+                <br>
+                <section id="introSection" class="py-1">
+                    <p>以上如有不實，願負相關責任並立即更換合格感熱紙。
+                        <br>
+                        <br>此致
+                        <br>
+                        <label for="number">財政部</label>
+                        <input type="text" id="p4_c_group" name="number" disabled="disabled">國稅局
+                        <label for="number"></label>
+                        <input type="text" id="p4_c_group2" name="number" disabled="disabled">分局/稽徵所
+                        <br>
+                        <br>營業人名稱：
+                        <label for="number"></label>
+                        <input type="text" id="p4_c_fullname" name="number" disabled="disabled">
+                        <br>
+                        <br>統一編號：
+                        <label for="number"></label>
+                        <input type="number" id="p4_c_taxid" name="number" disabled="disabled">
+                        <br>
+                        <br>負責人：
+                        <label for="number"></label>
+                        <input type="text" id="p4_c_manager_name" name="number" disabled="disabled">
+                        <br>
+                        <a class="getdate"></a>
+                    </p>
+                </section>
+            </div>
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-6 text-center">
+                        <button id="back4" type="button" class="btn btn-primary activity_button">BACK</button>
+                    </div>
+                    <div class="col-6 text-center">
+                        <button id="next4" type="button" class="btn btn-primary activity_button">NEXT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="step-5">
+            <!-- 5.電子發票字軌號碼明細總表 -->
+            <div class="container register_form_container">
+                <h3 class="text-center mt-1 mb-3">總機構代其他固定營業場所申請電子發票字軌號碼明細總表</h3>
+                <section id="introSection" class="py-1">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="6" style="text-center">電子發票字軌號碼(含電子發票整合服務平台功能啟用)申請書</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="5">總機構</td>
+                                <td>名稱</td>
+                                <td colspan="4">
+                                    <label for="name"></label>
+                                    <input type="text" id="p5_c_fullname" name="text" disabled="disabled">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>統一編號</td>
+                                <td colspan="2">
+                                    <label></label>
+                                    <input type="number" id="p5_c_taxid" disabled="disabled">
+                                </td>
+                                <td style="width: 100px;">稅籍編號</td>
+                                <td>
+                                    <label></label>
+                                    <input type="text" id="p5_c_taxnumber" disabled="disabled">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>負責人</td>
+                                <td colspan="2">
+                                    <label for="name"></label>
+                                    <input type="text" id="p5_c_manager_name" disabled="disabled">
+                                </td>
+                                <td>聯絡人</td>
+                                <td>
+                                    <label for="name"></label>
+                                    <input type="text" id="p5_c_accounting_name" disabled="disabled">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>聯絡電話</td>
+                                <td colspan="2">
+                                    <label></label>
+                                    <input type="text" id="p5_c_accounting_phone" disabled="disabled" placeholder="(區碼)電話#分機">
+                                </td>
+                                <td style="width: 100px;">E-mail Address</td>
+                                <td>
+                                    <label for="name"></label>
+                                    <input type="text" id="p5_c_accounting_email" disabled="disabled">
+                                </td>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <tr>
+                                <td colspan="6">總機構及其他固定營業場所申請明細</td>
+                            </tr>
+                            <tr>
+                                <td class="w-15">統一編號</td>
+                                <td>名稱</td>
+                                <td>所在地縣市別</td>
+                                <td>稅籍編號</td>
+                                <td colspan="2">「每期」預估使用數量(以下合計總組數填入申請書●首次申請 組(50號/組) )</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label></label>
+                                    <input type="text" id="step5-1-taxid">
+                                </td>
+                                <td>
+                                    <label></label>
+                                    <input type="text" id="step5-1-name">
+                                </td>
+                                <td>
+                                    <label></label>
+                                    <input type="text" id="step5-1-city">
+                                </td>
+                                <td>
+                                    <label></label>
+                                    <input type="text" id="step5-1-taxnumber">
+                                </td>
+                                <td colspan="2">
+                                    <label>一般稅額計算電子發票</label>
+                                    <input type="text" id="step5-1-ncount">組(50號/組)
+                                    <br>
+                                    <label>特種稅額計算電子發票</label>
+                                    <input type="text" id="step5-1-scount">組(50號/組)
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label></label>
+                                    <input type="text" id="step5-2-taxid">
+                                </td>
+                                <td>
+                                    <label></label>
+                                    <input type="text" id="step5-2-name">
+                                </td>
+                                <td>
+                                    <label for="name"></label>
+                                    <input type="text" id="step5-2-city">
+                                </td>
+                                <td>
+                                    <label></label>
+                                    <input type="text" id="step5-2-taxnumber">
+                                </td>
+                                <td colspan="2">
+                                    <label>一般稅額計算電子發票</label>
+                                    <input type="text" id="step5-2-ncount">組(50號/組)
+                                    <br>
+                                    <label>特種稅額計算電子發票</label>
+                                    <input type="text" id="step5-2-scount">組(50號/組)
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label></label>
+                                    <input type="text" id="step5-3-taxid">
+                                </td>
+                                <td>
+                                    <label for="name"></label>
+                                    <input type="text" id="step5-3-name">
+                                </td>
+                                <td>
+                                    <label for="name"></label>
+                                    <input type="text" id="step5-3-city">
+                                </td>
+                                <td>
+                                    <label for="name"></label>
+                                    <input type="text" id="step5-3-taxnumber">
+                                </td>
+                                <td colspan="2">
+                                    <label>一般稅額計算電子發票</label>
+                                    <input type="text" id="step5-3-ncount">組(50號/組)
+                                    <br>
+                                    <label>特種稅額計算電子發票</label>
+                                    <input type="text" id="step5-3-scount">組(50號/組)
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5">合計</td>
+                                <td>
+                                    <label>一般稅額計算電子發票</label>
+                                    <input type="text" id="step5-total-ncount">組(50號/組)
+                                    <br>
+                                    <label>特種稅額計算電子發票</label>
+                                    <input type="text" id="step5-total-scount">組(50號/組)
+                                    <br>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>※依照電子發票實施作業要點第十一點規定，營業人應於次期開始十日內，依規定格式將其使用之本期字軌、起訖號碼及空白未使用之字軌號碼傳輸至整合服務平台。
+                        營業人之總機構及其他固定營業場所使用電子發票字軌號碼，由總機構申請配賦者，得由總機構或委託加值服務中心傳輸。
+                    </p>
+                </section>
+            </div>
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-6 text-center">
+                        <button id="back5" type="button" class="btn btn-primary activity_button">BACK</button>
+                    </div>
+                    <div class="col-6 text-center">
+                        <button id="next5" type="button" class="btn btn-primary activity_button">NEXT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="step-6">
+            <!-- 6.委託加值服務中心事務委任書 -->
+            <div class="container register_form_container">
+                <h3 class="text-center mt-2 mb-5">委託加值服務中心事務委任書</h3>
+                <!-- <h4 class="register_subtitle mt-5 background-color:#e6e6e6">申請用戶基本資料</h4>\ -->
+                <section id="introSection" class="py-1">
+                    <p>本公司(商號)委任加值服務中心 　　（受任人）將所開立之電子發票依統一發票使用辦法第7條第4項規定之時限傳輸至財政部電子發票整合服務平台（以下簡稱整合服務平台），
+                        <br>為相關檢核發票字軌號碼作業需要，委任下列事務予受任人自
+                        <a id="sdate"></a>日起至<a id="edate"></a>日止，
+                        <br>得至整合服務平台查詢下載本公司(商號)之電子發票配號資訊，
+                        <br><br>並代本公司(商號)傳輸總分、支機構配號檔案及空白未使用之字軌號碼至整合服務平台。
+                        惟本公司(商號)與受任人終止前揭委任傳輸契約時，委任書於終止時失效，特立此委任書為憑。
+                    </p>
+                </section>
+                <br>
+                <div class="container register_form_container">
+                    <div class="row">
+                        <div class="col-6">
+                            <span>委任人</span><br>
+                            <span id="p6_c_fullname">營業人名稱：</span><br>
+                            <span id="p6_c_taxid">統一編號：</span><br>
+                            <span id="p6_c_manager-name">負 責 人：</span>
+                        </div>
+                        <div class="col-6">
+                            <p>受任人
+                                <br>加值服務中心：神通資訊科技股份有限公司
+                                <br>統一編號：53000774
+                                <br>負 責 人：蘇亮
+                            </p>
+                        </div>
+                    </div>
+                    <a class="getdate"></a>
+                </div>
+            </div>
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-6 text-center">
+                        <button id="back6" type="button" class="btn btn-primary activity_button">BACK</button>
+                    </div>
+                    <div class="col-6 text-center">
+                        <button id="next6" type="button" class="btn btn-primary activity_button">NEXT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="step-7">
+            <div class="container register_form_container">
+                <h3 class="text-center mt-5 mb-5">電子發票開立系統自行檢測表</h3>
+                <!-- <h4 class="register_subtitle mt-5 background-color:#e6e6e6">申請用戶基本資料</h4>\ -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th colspan="7" style="text-center">電子發票字軌號碼(含電子發票整合服務平台功能啟用)申請書</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="6">營業人</td>
+                            <td>統一編號</td>
+                            <td colspan="2">
+                                <label for="name"></label>
+                                <input type="text" id="p7_c_taxid" name="text" disabled="disabled">
+                            </td>
+                            <td rowspan="6">聯絡人</td>
+                            <td>姓名</td>
+                            <td colspan="2">
+                                <label for="name"></label>
+                                <input type="text" id="p7_c_accounting_name" name="text" disabled="disabled">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>公司名稱</td>
+                            <td colspan="2">
+                                <label for="number"></label>
+                                <input type="text" id="p7_c_fullname" name="number" disabled="disabled">
+                            </td>
+                            <td>電話</td>
+                            <td>
+                                <label for="number"></label>
+                                <input type="text" id="p7_c_accounting_phone" name="number" disabled="disabled"
+                                    placeholder="(區碼)電話#分機">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                            </td>
+                            <td>email</td>
+                            <td>
+                                <label for="name"></label>
+                                <input type="text" id="p7_c_accounting_email" name="text" disabled="disabled">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th colspan="6" style="text-center">電子發票字軌號碼(含電子發票整合服務平台功能啟用)申請書</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>系統廠商統一編號</td>
+                            <td colspan="2">神通科技股份有限公司(53000774)
+                            </td>
+                            <td>型號</td>
+                            <td colspan="2">---------------
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>系統名稱</td>
+                            <td colspan="2">MiINV
+                            </td>
+                            <td>系統版本</td>
+                            <td>V 1.0.0
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- 壹、自行檢測重要說明 -->
+                <section id="introSection" class="py-1">
+                    <h4 class="register_subtitle mt-5 background-color:#e6e6e6">壹、自行檢測重要說明：</h4>
+                    <p>
+                        <br>一、依統一發票使用辦法第24條之2規定，營業人開立統一發票，其字軌號碼如因列印或開立錯誤致發生代發獎金單位溢付獎金者，該溢付獎金應由該營業人償還。
+                        <br>次依電子發票實施作業要點第28點規定，營業人開立電子發票，如有重複開立、自行作廢及漏傳至整合服務平台等錯誤情形，或其他可歸責於營業人之事由，
+                        <br>致買受人無法領獎，或有誤領、重複領獎等情事，該未能領取、誤領或溢領獎金應由營業人於查獲日起15日內辦理賠償或償還。
+                        <br>二、為避免貴公司(行號)因操作錯誤或系統故障等因素開立錯誤之電子發票，需賠償統一發票中獎獎金，請就下列經常錯誤態樣自行檢視相關內控機制，
+                        <br>以降低開立錯誤電子發票之風險。倘有更換POS機或系統升級等情事，亦請重新自行檢視。
+                    </p>
+                </section>
+                <br>
+                <!-- 貳、預防錯誤態樣之檢測 -->
+                <h4 class="register_subtitle mt-5 background-color:#e6e6e6">貳、預防錯誤態樣之檢測：</h4>
+                <section id="introSection" class="py-1">
+                    <p>一、發票字軌號碼錯誤（號碼輸入錯誤、開立非所屬配號區間等）</p>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="1" style="text-center">項次</th>
+                                <th colspan="1" style="text-center">功能類別</th>
+                                <th colspan="1" style="text-center">檢測項目</th>
+                                <th colspan="1" style="text-center;width: 180px">檢測結果</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>配號設定</td>
+                                <td colspan="1">
+                                    <br>(1)以平台產出的CSV配號檔進行匯入。
+                                    <br>(2)系統字軌號碼之取得係由系統自動取號或給號，非以人工輸入字軌號碼。
+                                    <br>(3)前述(1)、(2)若採人工輸入，已設計多次多人確認機制，以降低人工輸入產生錯誤。
+                                </td>
+                                <td colspan="1">
+                                    <form action="">
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step1-radio1" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step1-radio1" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form action="">
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step1-radio2" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step1-radio2" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form action="">
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step1-radio3" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step1-radio3" checked="checked" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>配號範圍檢核</td>
+                                <td colspan="1">
+                                    <br>系統開立之發票號碼系統會檢核
+                                    <br>(1)其開立發票為可用配號設定範圍內。
+                                    <br>(2)依交易時間其發票號碼是否為當期所屬字軌號碼。
+                                </td>
+                                <td>
+                                    <form action="">
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step2-radio1" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step2-radio1" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form action="">
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step2-radio2" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step2-radio2" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>二、發票開立資訊錯誤(隨機碼錯誤、年期別錯誤、統編設定錯誤)</p>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="1" style="text-center">項次</th>
+                                <th colspan="1" style="text-center">功能類別</th>
+                                <th colspan="1" style="text-center">檢測項目</th>
+                                <th colspan="1" style="text-center;width: 180px">檢測結果</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3</td>
+                                <td>開機檢核</td>
+                                <td colspan="1">
+                                    <br>(1)設備及系統(含POS機)初次設定時，已具有對時、確認賣方統編、發票字軌號碼檢核機制。
+                                    <br>(2)設備及系統(含POS機)開啟後，已具有對時、確認賣方統編、 v
+                                    <br>發票字軌及前次開立發票號碼等相關資訊檢核確認功能。
+                                </td>
+                                <td colspan="1">
+                                    <form action="">
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step3-radio1" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step3-radio1" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form action="">
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step3-radio2" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step3-radio2" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>發票號碼檢核</td>
+                                <td colspan="1">
+                                    <br>系統會檢核發票號碼
+                                    <br>(1)檢核發票號碼總長度為10碼。 (前2碼英文、後8碼數字)
+                                    <br>(2)檢核發票號碼須在配號設定之區間範圍內。
+                                </td>
+                                <td>
+                                    <form action="">
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step4-radio1" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step4-radio1" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form action="">
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step4-radio2" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step4-radio2" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>字軌年期別顯示</td>
+                                <td colspan="1">系統會檢核字軌期別為該字軌所屬期別，須為年(3碼)+單月(2碼)+雙月(2碼)。
+                                    例如：FR為1050102期字軌。
+                                </td>
+                                <td>
+                                    <form action="">
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step5-radio1" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step5-radio1" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>隨機碼產製</td>
+                                <td colspan="1">隨機碼係以亂數函數產製，不以既定順序重覆出現。
+                                </td>
+                                <td>
+                                    <form action="">
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step6-radio1" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step6-radio1" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>共通性載具檢核</td>
+                                <td colspan="1">
+                                    <br>系統正確讀取共通性載具資訊，應具備基本檢核共通性載具功能。
+                                    <br>(1)手機條碼基本檢核條件：以/為起始作為判斷，目前總長度共為8碼，除第1碼外只會有0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ+-.這39個字元，勿將英文大寫轉換成小寫。
+                                    <br>(2)自然人憑證條碼基本檢核條件：2位大寫字母+14數字，勿將英文大寫轉換成小寫。
+                                </td>
+                                <td>
+                                    <form action="">
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step7-radio1" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step7-radio1" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>三、發票證明聯列印格式錯誤</p>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <!-- <th colspan="6" style="text-center">電子發票字軌號碼(含電子發票整合服務平台功能啟用)申請書</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>8</td>
+                                <td>證明聯列印</td>
+                                <td colspan="1">
+                                    <br>(1)年期別依發票字軌期別已正確設定列印。
+                                    <br>(2)發票字軌號碼格式與長度已正確設定列印。
+                                    <br>(3)隨機碼(4碼數字)已正確設定列印。
+                                    <br>(4)賣方統編(營業人統編)已正確設定列印。
+                                    <br>(5)輸入買方統編，已設定列印營業稅申報格式代碼。
+                                    <br>(6)所產生列印的一維條碼內容與上傳平台之資訊相符。
+                                    <br>(7)列印的QRCode內容與上傳平台之資訊相符。
+                                    <br>(8)列印的QRCode內容包含正確加密驗證資訊。(請參照電子發票證明聯一維及二維條碼規格說明)
+                                    <br>(9)列印之電子發票證明聯內容與上傳平台之資訊相符。
+                                </td>
+                                <td style="width: 180px">
+                                    <form>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio1" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio1" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio2" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio2" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio3" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio3" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio4" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio4" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio5" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio5" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio6" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio6" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio7" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio7" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio8" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio8" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio9" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step8-radio9" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>四、重複開立、漏未上傳及資料遺失</p>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="1" style="text-center">項次</th>
+                                <th colspan="1" style="text-center">功能類別</th>
+                                <th colspan="1" style="text-center">檢測項目</th>
+                                <th colspan="1" style="text-center;width: 180px">檢測結果</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>9</td>
+                                <td>重號檢核</td>
+                                <td colspan="1">
+                                    <br>(1)單一設備系統已具有檢核功能，不會開立同年期別發票字軌號碼重覆之發票。
+                                    <br>(2)如有分店，其各設備系統已具有檢核功能，不會開立同年期別發票字軌號碼重覆之發票。
+                                    <br>(3)分支機構之營業人系統已具有檢核或配號功能，不會誤用其他分支機構之發票字軌號碼，造成不同店重號狀況。
+                                    <br>(4)系統異常中斷時，已具確保不開立同年期別發票字軌號碼重覆之發票。
+                                </td>
+                                <td colspan="1">
+                                    <form>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step9-radio1" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step9-radio1" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step9-radio2" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step9-radio2" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step9-radio3" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step9-radio3" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                    <form>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step9-radio4" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step9-radio4" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>漏傳自動上傳機制
+                                </td>
+                                <td colspan="1">系統已具備漏傳檢核機制。 (建議發票上傳應有欄位註記，並於每日檢核漏傳發票後系統會自動重新上傳。)
+                                </td>
+                                <td>
+                                    <form>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step10-radio1" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step10-radio1" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>備份機制</td>
+                                <td colspan="1">發票開立資料已具有即時備份。
+                                    (建議前端(POS機)儲存設備提供Mirror機制或發票可即時後送營業人後端平台，避免設備毀損造成資料遺失。)
+                                </td>
+                                <td>
+                                    <form>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step11-radio1" checked="checked" disabled="disabled">具備</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label><input type="radio" name="step11-radio1" disabled="disabled">不具備</label>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <!-- <th colspan="6" style="text-center">電子發票字軌號碼(含電子發票整合服務平台功能啟用)申請書</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2" colspan="2">檢測人員簽名</td>
+                                <td>職稱</td>
+                                <td>姓名</td>
+                                <td rowspan="2" colspan="1">營業人章及
+                                    <br>負責人章
+                                </td>
+                                <td rowspan="2" colspan="1">營業人章及
+                                    <br>負責人章
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="1">
+                                    <label for=""></label>
+                                    <input type="text" id="step7-inspector-title" name="" value="經理">
+                                </td>
+                                <td colspan="1">
+                                    <label for=""></label>
+                                    <input type="text" id="step7-inspector-name" name="" value="邱黃慧湄">
+                                </td>
+                                <!-- <td>系統版本</td> -->
+                                <!-- <td>
+                              <label for="number"></label>
+                              <input type="text" id="number" name="number">
+                              </td> -->
+                            </tr>
+                            <tr>
+                                <td>完成檢測日期</td>
+                                <td rowspan="2" colspan="6">中 華 民 國 107 年 3 月 日
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <h4 class="register_subtitle mt-5 background-color:#e6e6e6">參、附註說明</h4>
+                <section id="introSection" class="py-1">
+                    <p>檢測項目之檢測結果為「不具備」者，其原因詳述如下：</p>
+                </section>
+                <div class="row register_row">
+                    <textarea name="" id="step7-0" cols="200" rows="20"></textarea>
+                </div>
+            </div>
+            <br>
+            <div class="row register_row">
+                <div class="col">
+                    <div class="register_subtitle">
+                        <form>
+                            <input type="checkbox" name="text" id="test1" value="Yes"> 我已閱讀 <a href="https://evweb.micloud.tw/tw/law.html"
+                                class="register_subtitle mt-5 mb-1 border:1px" target="_blank">訂購申請書暨服務契約</a>
+                        </form>
+                    </div>
+                    <div class="register_subtitle">
+                        <button type="button" class="btn btn-outline-primary activity_button" id="next7">送
+                            出</button>
+                        <div class="hide" id="error-c-type1" style="color: #dc3545; font-size: 80%; margin-top: 0.5rem; margin-bottom: 0.25rem">請勾選同意申請書暨服務契約</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/footer.js"></script>
+</body>
+
+</html>

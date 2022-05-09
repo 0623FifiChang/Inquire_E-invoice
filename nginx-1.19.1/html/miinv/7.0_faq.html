@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width;initial-scale=1.0">
+	<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.js"></script>
+
+	<link rel="stylesheet" href="./css/bootstrap-customize.css">
+	<link rel="stylesheet" href="./css/bootstrap.min.css" />
+	<link rel="stylesheet" href="./css/bootstrap-reboot.min.css" />
+	<link rel="stylesheet" href="./css/bootstrap-grid.min.css" />
+	<link rel="stylesheet" href="./css/bootstrap-customize.css" />
+	<link rel="stylesheet" href="./css/headerstyle.css" />
+	<link rel="stylesheet" href="./css/style.css" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	 crossorigin="anonymous">
+
+	<title>MiINV神資電子發票加值中心</title>
+	<style>
+		.front-images {
+
+			/*       Header圖片高度 */
+			min-height: 300px;
+			/*       Header圖片URL  */
+			background-image: url("./images/banner_bg_img/bg_img_7_faq.png");
+		}
+
+		body {
+			font-family: Microsoft JhengHei !important;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- chatbot start -->
+    <script src="./js/ChatBotController.js"></script>
+    <!-- chatbot end -->
+	
+	<!--    Nav Bar -->
+	<script src="./js/header_rwd.js"></script>
+
+	<!--       Header標題名稱 -->
+	<div class="front-images front-title">
+		<hr class="hr_banner_title_top" />
+		<span class="signin_title">
+			常見問答
+		</span>
+		<hr class="hr_banner_title_buttom" />
+	</div>
+	<!-- 	header_end -->
+
+	<!-- 	body_start -->
+	<div class="container-fluid" style="padding-top:20px;">
+		<div class="row">
+			<div class="col-md-10 offset-1" style="text-align:center">
+				<table style="margin: 0 auto">
+					<tbody id="FaqContent" style="text-align:left;">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- 	body_end -->
+
+	<!-- 	footer_start -->
+	<script type="text/javascript" src="./js/footer.js">
+	</script>
+	<!-- 	footer_end -->
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$.ajax({
+				type: "GET",
+				url: "https://evweb.micloud.tw/tonr2/sparklr/sysConstant/faqid"
+			}).done(function (jsonResult) {
+				if (jsonResult.CONSTANT_OPTION !== undefined) {
+					$("#FaqContent").html("");
+					$.ajax({
+						type: "GET",
+						url: "https://evweb.micloud.tw/tonr2/sparklr/coreFaq/INT"
+					}).done(function (jsonResult) {
+						var faq_qa = "";
+						if (jsonResult.length != 0) {
+							for (var i = 0; i < jsonResult.length; i++) {
+								var qa = "";
+								if (i < 9) {
+									qa = "0" + (i + 1);
+								} else {
+									qa = "" + (i + 1);
+								}
+								faq_qa += " <tr class=\"active\"><td> ";
+								faq_qa += " Q" + qa + "：" + jsonResult[i].FAQ_Q;
+								faq_qa += " </td></tr> ";
+								faq_qa += " <tr><td style=\"color:gray\"> ";
+								faq_qa += " A" + qa + "：" + jsonResult[i].FAQ_ANSWER;
+								faq_qa += " </td></tr> ";
+								faq_qa += "<tr><td>&nbsp;</td></tr>";
+							}
+						}
+						console.log(faq_qa);
+						$("#FaqContent").html(faq_qa);
+					});
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>

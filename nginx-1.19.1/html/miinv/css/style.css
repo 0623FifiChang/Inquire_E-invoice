@@ -1,0 +1,197 @@
+/* 在此撰寫此專案的CSS Style */
+.front-images {
+    margin: 0px !important;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top left;
+}
+
+.front-title {
+    font-family: Microsoft JhengHei !important;
+    font-size: 3rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 50px;
+}
+
+/* Banner title start */
+.signin_title {
+    font-family: Microsoft JhengHei !important;
+    font-size: 2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 10px;
+}
+
+.hr_banner_title＿top_1 {
+    padding: 0;
+    border: none;
+    border-top: medium double rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.hr_banner_title_top {
+    content: "gb";
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    padding: 0 0.25em;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.hr_banner_title_buttom {
+    content: "gb";
+    display: inline-block;
+    position: relative;
+    /* top: -0.7em; */
+    width: 70px;
+    padding: 0 0.25em;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+/* Banner title the end */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: Microsoft JhengHei !important;
+}
+
+#wrapper {
+    margin: 0px auto;
+    width: auto;
+}
+
+#logo_container {
+    text-align: left;
+    /* margin-left: 10px; */
+    width: 30px;
+    /* float: left; */
+}
+
+/*nav {
+    background-color: #00aecb;
+    text-align: center;
+}*/
+#content_in {
+    padding: 30px 50px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+＃content h1 {
+    color: #b63d32;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #18a6cb;
+    text-align: left;
+}
+
+.deepblue {
+    font-family: Microsoft JhengHei !important;
+    color: #177588;
+}
+
+.blue {
+    background-color: #00aecb;
+}
+
+.blue_index_title {
+    font-family: Microsoft JhengHei !important;
+    color: #00aecb;
+    padding: 30px;
+}
+
+.section-title {
+    font-family: Microsoft JhengHei !important;
+    padding: 20px;
+}
+
+.index-content-img {
+    /* width: 300px; */
+    image: url("../images/MiINV_module.png");
+}
+
+footer p {
+    font-size: 10px;
+    color: #ffffff;
+    padding: 5px 30px;
+    font-family: Microsoft JhengHei !important;
+}
+
+.footer-row-style {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+@media screen and (max-width: 1024px) {
+    @#wrapper {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    li align-self: auto;
+    padding: 10px;
+}
+
+/* #logo img { */
+/* display: block; */
+/* margin-left: 50px; */
+}
+
+.et_pb_text_align_left {
+    text-align: left;
+}
+
+.et_pb_text {
+    word-wrap: break-word;
+}
+
+/* 修改輪播指示圖變成圓點 */
+.carousel-indicators li {
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* 選擇屬性id是carouselImg開頭的元素 */
+[id^='carouselImg'] {
+    background-size: cover;
+    height: 600px;
+}
+
+#carouselId .carousel-item {
+    padding: 100px 0;
+}
+
+#reviewsSection .carousel-item {
+    min-height: 450px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-prev:focus,
+.carousel-control-next:hover,
+.carousel-control-next:focus {
+    color: #ff630d !important;
+    text-decoration: none;
+    outline: 0;
+    opacity: .9;
+}
+
+.subtitle-index {
+    color: #343434;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    font-family: Microsoft JhengHei !important;
+}

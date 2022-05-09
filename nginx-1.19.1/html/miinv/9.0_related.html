@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>MiINV神資電子發票加值中心</title>
+    <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="./css/bootstrap-customize.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-customize.css" />
+    <link rel="stylesheet" href="./css/headerstyle.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+
+
+
+    <style>
+        .front-images {
+
+            /*       Header圖片高度 */
+            min-height: 300px;
+            /*       Header圖片URL  */
+            background-image: url("./images/banner_bg_img/bg_img_link_9.png");
+        }
+
+        .related_container {
+            height: 100%;
+            padding-top: 100px;
+            padding-bottom: 100px
+        }
+
+        .related_button {
+            font-size: 1.8rem;
+            height: 200px;
+            width: 100%;
+            border-width: 5px;
+            border-color: #C4E3E8;
+            color: #177588;
+        }
+
+        .related_button:hover {
+            background-color: #8AC5D1;
+            border-color: #177588;
+        }
+
+        .related_row {
+            height: 20%;
+            padding-bottom: 10px;
+        }
+
+        .related_col {
+            height: 100%;
+        }
+
+        .related_text {
+            color: #434343;
+        }
+    </style>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+
+</head>
+
+<body>
+	<!-- chatbot start -->
+    <script src="./js/ChatBotController.js"></script>
+    <!-- chatbot end -->
+	
+    <!--    Nav Bar -->
+    <script src="./js/header_rwd.js"></script>
+
+    <!--       Header標題名稱 -->
+    <div class="front-images front-title">
+        <hr class="hr_banner_title_top" />
+        <span class="signin_title">
+            相關連結
+        </span>
+        <hr class="hr_banner_title_buttom" />
+    </div>
+
+    <div class="container related_container">
+
+        <div class="row related_row align-items-center">
+            <div class="col-4 related_col">
+                <button type="button" class="deepblue btn btn-outline-primary related_button" onclick="window.open('https://www.einvoice.nat.gov.tw/APMEMBERVAN/PublicAudit/PublicAudit')">全民稽核發票
+                    <br>查訊系統</button>
+            </div>
+            <div class="col-4 related_col">
+                <button type="button" class="deepblue btn btn-outline-primary related_button" onclick="window.open('https://www.einvoice.nat.gov.tw/APMEMBERVAN/XcaOrgPreserveCodeQuery/XcaOrgPreserveCodeQuery')">查詢受捐贈機關
+                    <br>或團體捐贈碼</button>
+            </div>
+            <div class="col-4 related_col">
+                <button type="button" class="deepblue btn btn-outline-primary related_button" onclick="window.open('http://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=G0340082')">統一發票
+                    <br>使用辦法</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 related_text">
+                <p>
+                    使用注意事項：
+                    <br> 1.全民稽核需要在使用者於消費完成後四十八小時方可至平台進行查詢。
+                    <br> 2.若於平台查詢不到發票資料，請洽您的購物業者。
+                    <br> 3.電子發票整合服務平台不提供捐贈發票註記的變更，請依原始資訊查詢。
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./js/footer.js"></script>
+
+</body>
+
+</html>
