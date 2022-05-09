@@ -12,5 +12,5 @@
 3. 使用瀏覽器開啟 http://127.0.0.1/miinv ,畫面如果有顯示神通科技發票專網，表示成功
 
 ## 本次修改
-在\html\miinv\js\header_rwd.js 中新增「查詢電子發票」的選項<br>
-並設置其所連結的網頁為：在\html\miinv 底下新增的0.00_inquire.html檔案
+將網頁的基本內容【網頁最上面和最下面的那些連結放上】</br>
+修改位置：nginx-1.19.1\html\miinv 的 0.00_inquire.html 
