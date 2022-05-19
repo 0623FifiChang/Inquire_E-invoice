@@ -36,6 +36,7 @@ extension_dir = "C:\Users\admin\Desktop\Inquire_E-invoice\php\ext"
 https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-install-steps/
 </br>
 2. 在MySQL建置了一個資料庫inquire_e-invoice，並在此資料庫放入我所需的data</br>
+
     * 將 **Inquire_E-invoice\\[1]Nginx+php+MySQL結合過程**  資料夾內的 **將data放到MySQL的指令.txt** 開啟
 
     * Alt+A 複製所有指令，貼到MySQL上，一次執行所有指令，這將會建立置了一個資料庫inquire_e-invoice，並在此資料庫放入所需的data
