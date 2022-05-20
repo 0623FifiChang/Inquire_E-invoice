@@ -37,8 +37,8 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
 
 2. 在MySQL建置了一個資料庫inquire_e-invoice，並在此資料庫放入我所需的data</br>
 
-步驟1：將 **Inquire_E-invoice\\[1]Nginx+php+MySQL結合過程**  資料夾內的 **將data放到MySQL的指令.txt** 開啟</br>
-步驟2：Alt+A 複製所有指令，貼到MySQL上，一次執行所有指令，這將會建立置了一個資料庫inquire_e-invoice，並在此資料庫放入所需的data
+    1. 將 **Inquire_E-invoice\\[1]Nginx+php+MySQL結合過程**  資料夾內的 **將data放到MySQL的指令.txt** 開啟</br>
+    1. Alt+A 複製所有指令，貼到MySQL上，一次執行所有指令，這將會建立置了一個資料庫inquire_e-invoice，並在此資料庫放入所需的data
 
 3. 打開**Inquire_E-invoice\html\php** 資料夾內的**connMySQL.php**，將第三行和第四行的使用者名稱和使用者密碼變更為自己的設置
     ```php
