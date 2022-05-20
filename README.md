@@ -1,4 +1,4 @@
-# 使用說明
+# 說明
 
 此為物件導線軟體工程課程的小組作業:查詢電子發票</br>
 
@@ -10,11 +10,12 @@
 * php-8.1.6
 * MySQL 8.0
 
-# 使用方法
+# 使用方法 
+### 【僅適用於 本地端localhost】
 ## 1. 下載
 ```
 法一：使用clone【複製】
-$ git clone https://github.com/0623FifiChang/Inquire_E-invoice.git
+$ clone https://github.com/0623FifiChang/Inquire_E-invoice.git
 ```
 ```
 法二：下載zip，再解壓縮
@@ -26,11 +27,21 @@ $ git clone https://github.com/0623FifiChang/Inquire_E-invoice.git
 extension_dir = "C:\Users\admin\Desktop\Inquire_E-invoice\php\ext"
 ```
 將雙引號中間的路徑，改為自己的 <font color="red">**ext資料夾的絕對路徑**</font>
-## 3. nginx運作確認
-回到Inquire_E-invoice資料夾底下，點擊執行nginx.exe</br>
+## 3.php-cgi啟動
+
+1. 開命令提示符(cmd)進入php資料夾
+    cd  C:\Users\admin\Desktop\nginx-1.21.6\php
+2. 在此位置執行以下命令，啟動php-cgi</br>
+以下兩種指令二擇一，第二種方法的路徑須改為自己的php.ini檔的絕對路徑
+    
+    php-cgi.exe -b 127.0.0.1:9000
+
+    php-cgi.exe -b 127.0.0.1:9000 -c C:\Users\admin\Desktop\nginx-1.21.6\php\php.ini
+
+## 4.  nginx、php運作確認
+* 回到Inquire_E-invoice資料夾底下，點擊執行nginx.exe</br>
 使用瀏覽器開啟 http://127.0.0.1/miinv ,畫面如果有顯示神通科技發票專網，表示nginx有成功運作
-## 4. php運作確認
-使用瀏覽器開啟 http://127.0.0.1/index.php ，如果有出現PHP Version 8.1.6的內容，表示php也可正常運作
+* 使用瀏覽器開啟 http://127.0.0.1/index.php ，如果有出現PHP Version 8.1.6的內容，表示php也可正常運作
 ## 5. 添加資料庫</br>
 1. 先載好MySQL，MySQL安裝按照此網址去做：
 https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-install-steps/
