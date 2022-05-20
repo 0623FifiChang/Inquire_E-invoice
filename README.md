@@ -1,4 +1,4 @@
-# 使用說明
+# 說明
 
 此為物件導線軟體工程課程的小組作業:查詢電子發票</br>
 
@@ -10,11 +10,12 @@
 * php-8.1.6
 * MySQL 8.0
 
-# 使用方法
+# 使用方法 
+### 【僅適用於 本地端localhost】
 ## 1. 下載
 ```
 法一：使用clone【複製】
-$ git clone https://github.com/0623FifiChang/Inquire_E-invoice.git
+$ clone https://github.com/0623FifiChang/Inquire_E-invoice.git
 ```
 ```
 法二：下載zip，再解壓縮
