@@ -267,3 +267,5 @@ Stack trace:
 #0 C:\Users\admin\Desktop\nginx-1.21.6\html\php\test.php(39): mysqli_fetch_assoc(NULL)
 #1 {main}
   thrown in C:\Users\admin\Desktop\nginx-1.21.6\html\php\test.php on line 39" while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "GET /php/test.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
+2022/05/20 22:52:54 [error] 7176#2788: *200 CreateFile() "C:\Users\admin\Desktop\nginx-1.21.6/html/miinv" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /miinv HTTP/1.1", host: "localhost"
+2022/05/20 23:00:29 [error] 1496#10064: *8 connect() failed (10061: No connection could be made because the target machine actively refused it) while connecting to upstream, client: 127.0.0.1, server: localhost, request: "GET /php/test.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "localhost"
