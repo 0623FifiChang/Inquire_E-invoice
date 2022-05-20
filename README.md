@@ -29,7 +29,7 @@ extension_dir = "C:\Users\admin\Desktop\Inquire_E-invoice\php\ext"
 將雙引號中間的路徑，改為自己的 <font color="red">**ext資料夾的絕對路徑**</font>
 ## 3.php-cgi啟動
 
-1. 開命令提示符(cmd)進入php資料夾
+1. 開命令提示符(cmd)進入php資料夾</br>
     cd  C:\Users\admin\Desktop\nginx-1.21.6\php
 2. 在此位置執行以下命令，啟動php-cgi</br>
 以下兩種指令二擇一，第二種方法的路徑須改為自己的php.ini檔的絕對路徑
