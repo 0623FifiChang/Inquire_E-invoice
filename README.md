@@ -30,13 +30,17 @@ extension_dir = "C:\Users\admin\Desktop\Inquire_E-invoice\php\ext"
 ## 3.php-cgi啟動
 
 1. 開命令提示符(cmd)進入php資料夾</br>
+    ```
     cd  C:\Users\admin\Desktop\nginx-1.21.6\php
+    ```
 2. 在此位置執行以下命令，啟動php-cgi</br>
 以下兩種指令二擇一，第二種方法的路徑須改為自己的php.ini檔的絕對路徑
-    
+    ```
     php-cgi.exe -b 127.0.0.1:9000
-
+    ```
+    ```
     php-cgi.exe -b 127.0.0.1:9000 -c C:\Users\admin\Desktop\nginx-1.21.6\php\php.ini
+    ```
 
 ## 4.  nginx、php運作確認
 * 回到Inquire_E-invoice資料夾底下，點擊執行nginx.exe</br>
@@ -52,17 +56,21 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
     1. 將 **Inquire_E-invoice\\[1]Nginx+php+MySQL結合過程**  資料夾內的 **將data放到MySQL的指令.txt** 開啟</br>
     1. Alt+A 複製所有指令，貼到MySQL上，一次執行所有指令，這將會建立置了一個資料庫inquire_e-invoice，並在此資料庫放入所需的data
 
-3. 打開**Inquire_E-invoice\html\php** 資料夾內的**connMySQL.php**，將第三行和第四行的使用者名稱和使用者密碼變更為自己的設置
+3. 打開**Inquire_E-invoice\html\php** 資料夾內的**connMySQL.php**，將第五行和第六行的使用者名稱和使用者密碼變更為自己的設置
     ```php
     $username = "root";     //使用者名稱
     $password = "123456";   //使用者密碼
     ```
 ## 6. 連結MySQL的資料庫確認
-使用瀏覽器開啟 http://localhost/php/connMySQL.php ，如果畫面顯示</br>
+使用瀏覽器開啟 http://localhost/php/test.php ，如果畫面顯示</br>
 「MySQL连接成功</br>
 資料庫inquire_e-invoice已經選擇，可以使用該資料庫了」</br>
 表示成功連結資料庫
 </br>
 
 # 本次修改
-修改使用說明README.md，並增加[2]【替換檔】nginx-1.21.6.zip，解決不同電腦可能無法運作</br>
+1. 修改資料庫儲存的data格式，將原本的"month"【原儲存格式為202201】</br>拆開成"year"【儲存格式為2022】和"month"【儲存格式為01】</br>
+2. 將connMySQL.php變更為物件導向格式【class connect{}】，並且變更檔名為connMySQL__dB.php
+3. 將從資料庫取得的資料做成物件導向格式【class getData{}】，放在getData.php
+4. 將取得的資料做成表格，並為表格加上CSS樣式，CSS樣式存在table-Style.css 
+</br>

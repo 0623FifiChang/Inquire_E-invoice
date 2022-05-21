@@ -1,57 +1,44 @@
+CREATE DATABASE `inquire_e-invoice`;	-- 創建資料庫 
+USE  `inquire_e-invoice`;	 -- 開始使用此資料庫 
 
-CREATE DATABASE `inquire_e-invoice`;
-USE  `inquire_e-invoice`;
-
-
--- ------------------------------------------
-CREATE TABLE `data_of_e-invoice`(
+-- DROP TABLE `data_of_e-invoice`;	-- 刪除表格 
+------------------------------------------
+CREATE TABLE `data_of_e-invoice`(	-- 創建表格 
     `id` INT  PRIMARY KEY,
     `company_compilation` INT,
     `company_name` VARCHAR(20),
+    `year` INT,
     `month` INT,
     `num_of_e-invoice` INT
 );
 DESCRIBE  `data_of_e-invoice`; 	-- 顯示table
 
-INSERT INTO `data_of_e-invoice` VALUES(1, 49754552, "正光雕刻工廠", 202201, 132);
-INSERT INTO `data_of_e-invoice` VALUES(2, 49754568, "宏記碾米店", 202201, 244);
-INSERT INTO `data_of_e-invoice` VALUES(3, 97934576, "黃石藝品店", 202201, 152);
-INSERT INTO `data_of_e-invoice` VALUES(4, 97934674, "愛麗絲便利商店", 202201, 5332);
+-- 插入資料到表格 -- 
+INSERT INTO `data_of_e-invoice` VALUES(1, 49754552, "正光雕刻工廠", 2022, 01, 132);
+INSERT INTO `data_of_e-invoice` VALUES(2, 49754568, "宏記碾米店", 2022, 01, 244);
+INSERT INTO `data_of_e-invoice` VALUES(3, 97934576, "黃石藝品店", 2022, 01, 152);
+INSERT INTO `data_of_e-invoice` VALUES(4, 97934674, "愛麗絲便利商店", 2022, 01, 5332);
 
-INSERT INTO `data_of_e-invoice` VALUES(5, 49754552, "正光雕刻工廠", 202202, 58);
-INSERT INTO `data_of_e-invoice` VALUES(6, 49754568, "宏記碾米店", 202202, 901);
-INSERT INTO `data_of_e-invoice` VALUES(7, 97934576, "黃石藝品店", 202202, 152);
-INSERT INTO `data_of_e-invoice` VALUES(8, 97934674, "愛麗絲便利商店", 202202, 8099);
+INSERT INTO `data_of_e-invoice` VALUES(5, 49754552, "正光雕刻工廠", 2022, 02, 58);
+INSERT INTO `data_of_e-invoice` VALUES(6, 49754568, "宏記碾米店", 2022, 02, 901);
+INSERT INTO `data_of_e-invoice` VALUES(7, 97934576, "黃石藝品店", 2022, 02, 152);
+INSERT INTO `data_of_e-invoice` VALUES(8, 97934674, "愛麗絲便利商店", 2022, 02, 8099);
 
-INSERT INTO `data_of_e-invoice` VALUES(9, 49754552, "正光雕刻工廠", 202203, 132);
-INSERT INTO `data_of_e-invoice` VALUES(10, 49754568, "宏記碾米店", 202203, 838);
-INSERT INTO `data_of_e-invoice` VALUES(11, 97934576, "黃石藝品店", 202203, 2408);
-INSERT INTO `data_of_e-invoice` VALUES(12, 97934674, "愛麗絲便利商店", 202203, 90);
+INSERT INTO `data_of_e-invoice` VALUES(9, 49754552, "正光雕刻工廠", 2022, 03, 132);
+INSERT INTO `data_of_e-invoice` VALUES(10, 49754568, "宏記碾米店", 2022, 03, 838);
+INSERT INTO `data_of_e-invoice` VALUES(11, 97934576, "黃石藝品店", 2022, 03, 2408);
+INSERT INTO `data_of_e-invoice` VALUES(12, 97934674, "愛麗絲便利商店", 2022, 03, 90);
 
-INSERT INTO `data_of_e-invoice` VALUES(13, 49754552, "正光雕刻工廠", 202204, 13);
-INSERT INTO `data_of_e-invoice` VALUES(14, 49754568, "宏記碾米店", 202204, 5);
-INSERT INTO `data_of_e-invoice` VALUES(15, 97934576, "黃石藝品店", 202204, 899);
-INSERT INTO `data_of_e-invoice` VALUES(16, 97934674, "愛麗絲便利商店", 202204, 9920);
+INSERT INTO `data_of_e-invoice` VALUES(13, 49754552, "正光雕刻工廠", 2022, 04, 13);
+INSERT INTO `data_of_e-invoice` VALUES(14, 49754568, "宏記碾米店", 2022, 04, 5);
+INSERT INTO `data_of_e-invoice` VALUES(15, 97934576, "黃石藝品店", 2022, 04, 899);
+INSERT INTO `data_of_e-invoice` VALUES(16, 97934674, "愛麗絲便利商店", 2022, 04, 9920);
 
-INSERT INTO `data_of_e-invoice` VALUES(17, 49754552, "正光雕刻工廠", 202205, 912);
-INSERT INTO `data_of_e-invoice` VALUES(18, 49754568, "宏記碾米店", 202205, 252);
-INSERT INTO `data_of_e-invoice` VALUES(19, 97934576, "黃石藝品店", 202205, 43);
-INSERT INTO `data_of_e-invoice` VALUES(20, 97934674, "愛麗絲便利商店", 202205, 1324);
+INSERT INTO `data_of_e-invoice` VALUES(17, 49754552, "正光雕刻工廠", 2022, 05, 912);
+INSERT INTO `data_of_e-invoice` VALUES(18, 49754568, "宏記碾米店", 2022, 05, 252);
+INSERT INTO `data_of_e-invoice` VALUES(19, 97934576, "黃石藝品店", 2022, 05, 43);
+INSERT INTO `data_of_e-invoice` VALUES(20, 97934674, "愛麗絲便利商店", 2022, 05, 1324);
 
+-- 顯示表格資料 --  
 SELECT * FROM `data_of_e-invoice`;  
 -- ------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
