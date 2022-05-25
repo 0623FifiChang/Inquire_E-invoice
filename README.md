@@ -69,8 +69,7 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
 </br>
 
 # 本次修改
-1. 修改資料庫儲存的data格式，將原本的"month"【原儲存格式為202201】</br>拆開成"year"【儲存格式為2022】和"month"【儲存格式為01】</br>
-2. 將connMySQL.php變更為物件導向格式【class connect{}】，並且變更檔名為connMySQL__dB.php
-3. 將從資料庫取得的資料做成物件導向格式【class getData{}】，放在getData.php
-4. 將取得的資料做成表格，並為表格加上CSS樣式，CSS樣式存在table-Style.css 
+1. class getData優化：</br>
+刪除 ` private $sql_EInvoiceData, $sql_CompanyName ` 將這兩個變數變成class getData建構子內的"區域變數"
+2. 將 `include 'connMySQL__dB.php';`從test.php移到getData.php
 </br>

@@ -11,7 +11,6 @@
   放上首頁介紹的資料</br></br>
 
   <?php 
-  include 'connMySQL__dB.php';
   include "getData.php";
   $getData = new getData(49754552);
   $CompanyName = $getData->getCompanyName();
