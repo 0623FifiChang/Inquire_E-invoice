@@ -1,42 +1,43 @@
-<!-- 若要用此物件，需先include 'connMySQL__dB.php';  以取得資料庫連結 -->
-<!-- 若要用此物件，需先include 'connMySQL__dB.php';  以取得資料庫連結 -->
+<!-- public(開放成員)：不論在物件本體，或是外部程式，都可以使接使用。
+    protected(保護成員)：僅外部程式無法叫用，但物件本體及繼承的子類別均可使用。
+    private(私有成員)：僅在該物件本體可以使用，外部程式或繼承於本物件之子類別無法使用。 -->
 
 <?php
 include 'connMySQL__dB.php';
-class getData{
-    // public(開放成員)：不論在物件本體，或是外部程式，都可以使接使用。
-    // protected(保護成員)：僅外部程式無法叫用，但物件本體及繼承的子類別均可使用。
-    //private(私有成員)：僅在該物件本體可以使用，外部程式或繼承於本物件之子類別無法使用。
-    // private $sql_EInvoiceData, $sql_CompanyName;
-    private $EInvoiceData, $CompanyName;
+class getData extends connnect{
+
+    protected $EInvoiceData;
+    protected $CompanyName;
 
     //建構子    【建立此物件時預設會先自動執行的C函式】 //物件class中，函數名稱為__construct()代表是建構子    
     function __construct($comyanyID){     
         echo "<h1>物件getData ->開啟MySQL的連線</h1>";
-        $this->connDatabase = new connnect();   // 連線MySQL的並選擇資料庫
-        $this->connMySQL_link = $this->connDatabase ->get_link_connMySQL() ;        //取得連線MySQL的link
-        // $this->connDatabase_link = $this->connDatabase ->get_link_connDatabase() ;  //取得已被選擇的資料庫的link
         
+        // 注意：php中，子類別繼承父類別後，父類別的建解構子都不會被執行
+        // 子類別要執行父類別的建解構子，就要特別叫用，使用 parent:: 保留字
+        parent::__construct();  //呼叫執行父類別的建構子    
+        // link_connMySQL為父類別的protected(保護成員)，可被此子類別使用
+  
         //取出公司名的sql語法        //【變數引用方法：     '".$sql_1."'】
         $sql_CompanyName = "SELECT DISTINCT `company_name`	
                                     FROM `data_of_e-invoice`
                                     WHERE `company_compilation` =  '".$comyanyID."'  " ; 
-                                    // WHERE `company_compilation` =      49754552     " ; 
-        $result = mysqli_query($this->connMySQL_link, $sql_CompanyName);    //取出符合的資料【公司名】
+        $result = mysqli_query($this->link_connMySQL, $sql_CompanyName);    //取出符合的資料【公司名】
         $this->CompanyName = mysqli_fetch_assoc($result)["company_name"];       //從資料庫取出符合的資料中"不重複"的資料
 
         //取出發票數量相關資料的語法
         $sql_EInvoiceData = "SELECT `year` ,`month` , `num_of_e-invoice` 
                                     FROM `data_of_e-invoice` 
                                     WHERE `company_compilation` =   '".$comyanyID."'   " ;
-        $this->EInvoiceData = mysqli_query($this->connMySQL_link, $sql_EInvoiceData);  //從資料庫取出發票數量相關資料【指定公司的：年、月、發票數量】                   
+        $this->EInvoiceData = mysqli_query($this->link_connMySQL, $sql_EInvoiceData);  //從資料庫取出發票數量相關資料【指定公司的：年、月、發票數量】                   
                 
         //資料取得完畢，關閉資料庫
-        mysqli_close($this->connMySQL_link);
+        mysqli_close($this->link_connMySQL);
         echo "<h1>物件getData ->關閉MySQL的連線</h1>";
         
     }
 
+    /*  【將此類別變成被繼承的父類別，protected(保護成員)$CompanyName、$EInvoiceData就可直接被引用】
     //方法method 1
     function getCompanyName(){
         return $this ->CompanyName;   
@@ -45,6 +46,7 @@ class getData{
     function getEInvoiceData(){
         return $this->EInvoiceData;
     }
+    */
 
 }
 

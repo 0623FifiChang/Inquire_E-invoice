@@ -6,8 +6,9 @@ class connnect{
     public $password = "123456";   //使用者密碼
     public $database = "inquire_e-invoice";        //選擇資料庫
     //私有成員，必須透過一個開放的函式去傳出一個私有成員的值
-    private $link_connMySQL;
-    private $link_connDatabase; 
+    // protected(保護成員)：僅外部程式無法叫用，但物件本體及繼承的子類別均可使用。
+    protected $link_connMySQL;
+    protected $link_connDatabase; 
 
 
     //建構子    【建立此物件時預設會先自動執行的C函式】
@@ -27,7 +28,8 @@ class connnect{
         }
         echo "資料庫".$this->database."已經選擇，可以使用該資料庫了</br>";
     }
-
+    
+    /*  【將此類別變成被繼承的父類別，protected(保護成員)$link_connMySQL、$link_connDatabase就可直接被引用】
     //方法method 1
     function get_link_connMySQL(){
         return $this->link_connMySQL;       //私有成員，必須透過一個開放的函式去傳出一個私有成員的值
@@ -36,6 +38,7 @@ class connnect{
     function get_link_connDatabase(){
         return $this->link_connDatabase;    //私有成員，必須透過一個開放的函式去傳出一個私有成員的值
     }
+    */
 
 
     //解構子    【將已經用完不需要的物件release掉，會在unset($objectName)後被執行。】
