@@ -8,6 +8,7 @@ class getData extends connnect{
 
     protected $EInvoiceData;
     protected $CompanyName;
+    public $ID_notFond = 0;
 
     //建構子    【建立此物件時預設會先自動執行的C函式】 //物件class中，函數名稱為__construct()代表是建構子    
     function __construct($comyanyID){     
@@ -21,9 +22,18 @@ class getData extends connnect{
         //取出公司名的sql語法        //【變數引用方法：     '".$sql_1."'】
         $sql_CompanyName = "SELECT DISTINCT `company_name`	
                                     FROM `data_of_e-invoice`
-                                    WHERE `company_compilation` =  '".$comyanyID."'  " ; 
-        $result = mysqli_query($this->link_connMySQL, $sql_CompanyName);    //取出符合的資料【公司名】
-        $this->CompanyName = mysqli_fetch_assoc($result)["company_name"];       //從資料庫取出符合的資料中"不重複"的資料
+                                    WHERE `company_compilation` =  '".$comyanyID."'  " ; //  DISTINCT ：從資料庫取出符合的資料中"不重複"的資料
+        $result = mysqli_query($this->link_connMySQL, $sql_CompanyName);    //取出符合的資料【公司名】，【應只有一個符合】
+        if (mysqli_num_rows($result) == 0){
+            // echo "此ID不存在";            
+            mysqli_close($this->link_connMySQL);//關閉資料庫
+            // echo "<h1>物件getData ->關閉MySQL的連線</h1>";
+            $this->ID_notFond = 1;
+            return;
+        }
+        $this->CompanyName = mysqli_fetch_assoc($result)["company_name"];       // 取出第一列的資料【因為本來酒只有一個，取出這唯一一列】
+
+        // if
 
         //取出發票數量相關資料的語法
         $sql_EInvoiceData = "SELECT `year` ,`month` , `num_of_e-invoice` 
@@ -37,7 +47,9 @@ class getData extends connnect{
         
     }
 
-    /*  【將此類別變成被繼承的父類別，protected(保護成員)$CompanyName、$EInvoiceData就可直接被引用】
+    /*
+    //  【將此類別變成被繼承的父類別，protected(保護成員)$CompanyName、$EInvoiceData就可直接被引用】
+    // 為了使非繼承此getData的子類別(外部程式)也可使用CompanyName、EInvoiceData，添加以下兩個method
     //方法method 1
     function getCompanyName(){
         return $this ->CompanyName;   
@@ -47,11 +59,12 @@ class getData extends connnect{
         return $this->EInvoiceData;
     }
     */
+    
 
 }
 
 /* 
-//測試物件getData
+//測試物件getData【需將method 1、method 2解註解】
 $getData = new getData(49754552);
 $CompanyName = $getData->getCompanyName();
 $EInvoiceData = $getData->getEInvoiceData();

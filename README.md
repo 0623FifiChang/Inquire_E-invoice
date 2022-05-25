@@ -69,31 +69,7 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
 </br>
 
 # 本次修改
-1. 將原位於html/php底下的`table-Style.css`移到html/css資料夾底下
-2. 將印出表格的動作另外製成`class tablution`，存在tablution.php中
-3. 使表格在網頁中居中</br>
-table-Style.css中的table{}新增margin:0 auto;
-    ```CSS
-    table {
-        border-collapse: collapse; 
-        border: 2px solid rgb(54, 31, 0);   
-        letter-spacing: 1px; 
-
-        margin:0 auto;  /* 使表格於網頁中置中 */
-    ```
-4. 將`class connect`、`class getData`、新增的`class tablution`變更為繼承形式</br>    
-    - class connnect、class getData中的幾個private成員改成保護成員，使這些成員可被子類別繼承使用
-
-        ```php
-        // class connnect
-        protected $link_connMySQL;
-        protected $link_connDatabase; 
-        ```
-        ```php
-        // class getData
-        protected $EInvoiceData;
-        protected $CompanyName;
-        ```
-        【PS.因為這些成員可被繼承，所以刪除get_link_connMySQL()、get_link_connDatabase()、getCompanyName()、getEInvoiceData()這些method】
-
+1. 更正getData的註解錯誤
+2. getData新增是否輸入錯誤ID的判斷，如果是錯誤的，令`$ID_notFond = 1`
+2. 新增`class getAllCompanyID`，可獲取資料庫中所有公司統編
 </br>

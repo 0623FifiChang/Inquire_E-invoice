@@ -10,10 +10,14 @@
   放上首頁介紹的資料</br></br>
   <?php 
   include "tabulation.php";
-  $ID = 49754552;
+  $ID = 497545523;
   $tabulation = new tabulation($ID);
 
-  $tabulation->make_table();
+  if($tabulation->ID_notFond == 1){
+    echo "此ID不存在，請重新輸入";
+  }else{
+      $tabulation->make_table();
+  }
   
 
 
