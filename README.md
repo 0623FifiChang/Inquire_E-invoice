@@ -69,5 +69,6 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
 </br>
 
 # 本次修改
-1. 將`contrib、docs、logs、temp`這幾個資料夾解除追蹤，因為這些檔案都不會去修改他，但執行時可能會依據電腦有所更動，所以取消追蹤避免把針對電腦改變的資料也記錄
+1. 將`contrib、docs、logs、temp`這幾個資料夾設定git忽略以避免被系統要求追蹤
+2. 作法與執行過程寫在`將部分檔案移除追蹤作法.docx`
 </br>
