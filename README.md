@@ -69,7 +69,5 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
 </br>
 
 # 本次修改
-1. 更正README.md
-2. 將 `[2]【替換檔】nginx-1.21.6.zip`修改【重新從nginx-1.21.6中複製過來】
-3. 將`contrib、docs、logs、temp和nginx.exe`還原成最一開始的樣子【從nginx-1.21.6中複製過來的最初樣子】
+1. 將`contrib、docs、logs、temp`這幾個資料夾解除追蹤，因為這些檔案都不會去修改他，但執行時可能會依據電腦有所更動，所以取消追蹤避免把針對電腦改變的資料也記錄
 </br>
