@@ -69,7 +69,8 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
 </br>
 
 # 本次修改
-1. 更正getData的註解錯誤
-2. getData新增是否輸入錯誤ID的判斷，如果是錯誤的，令`$ID_notFond = 1`
-2. 新增`class getAllCompanyID`，可獲取資料庫中所有公司統編
+1. 把原本在html/底下的php這個資料夾，移到html/miinv底下</br>
+    新的存放.php檔案的資料夾位置為：html/miinv/php
+2. 把原本在html/css底下的`table-Style.css`這個檔案，移到html/miinv/css底下</br>
+
 </br>
