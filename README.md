@@ -15,7 +15,7 @@
 ## 1. 下載
 ```
 法一：使用clone【複製】
-$ clone https://github.com/0623FifiChang/Inquire_E-invoice.git
+$ git clone https://github.com/0623FifiChang/Inquire_E-invoice.git
 ```
 ```
 法二：下載zip，再解壓縮
@@ -45,7 +45,7 @@ extension_dir = "C:\Users\admin\Desktop\Inquire_E-invoice\php\ext"
 ## 4.  nginx、php運作確認
 * 回到Inquire_E-invoice資料夾底下，點擊執行nginx.exe</br>
 使用瀏覽器開啟 http://127.0.0.1/miinv ,畫面如果有顯示神通科技發票專網，表示nginx有成功運作
-* 如果nginx沒有成功運作【工作管理員中也沒有nginx在執行】，將壓縮檔 **[2]【替換檔】nginx-1.21.6.zip**解壓縮，取出裡面的所有資料(contrib、docs、logs和nginx.exe)，移到Inquire_E-invoice底下，將原本的**全部取代**
+* 如果nginx沒有成功運作【工作管理員中也沒有nginx在執行】，將壓縮檔 **[2]【替換檔】nginx-1.21.6.zip**解壓縮，取出裡面的所有資料(contrib、docs、logs、temp和nginx.exe)，移到Inquire_E-invoice底下，將原本的`刪除後再貼上`【 ***不要***直接貼上按全部取代】
 * 使用瀏覽器開啟 http://127.0.0.1/index.php ，如果有出現PHP Version 8.1.6的內容，表示php也可正常運作
 ## 5. 添加資料庫</br>
 1. 先載好MySQL，MySQL安裝按照此網址去做：
@@ -69,8 +69,13 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
 </br>
 
 # 本次修改
+<<<<<<< HEAD
 1. 把原本在html/底下的php這個資料夾，移到html/miinv底下</br>
     新的存放.php檔案的資料夾位置為：html/miinv/php
 2. 把原本在html/css底下的`table-Style.css`這個檔案，移到html/miinv/css底下</br>
 
+=======
+1. 將`contrib、docs、logs、temp`這幾個資料夾設定git忽略以避免被系統要求追蹤
+2. 作法與執行過程寫在`將部分檔案移除追蹤作法.docx`
+>>>>>>> fifi_2
 </br>
