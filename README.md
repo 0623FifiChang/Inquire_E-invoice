@@ -15,7 +15,7 @@
 ## 1. 下載
 ```
 法一：使用clone【複製】
-$ clone https://github.com/0623FifiChang/Inquire_E-invoice.git
+$ git clone https://github.com/0623FifiChang/Inquire_E-invoice.git
 ```
 ```
 法二：下載zip，再解壓縮
@@ -45,7 +45,7 @@ extension_dir = "C:\Users\admin\Desktop\Inquire_E-invoice\php\ext"
 ## 4.  nginx、php運作確認
 * 回到Inquire_E-invoice資料夾底下，點擊執行nginx.exe</br>
 使用瀏覽器開啟 http://127.0.0.1/miinv ,畫面如果有顯示神通科技發票專網，表示nginx有成功運作
-* 如果nginx沒有成功運作【工作管理員中也沒有nginx在執行】，將壓縮檔 **[2]【替換檔】nginx-1.21.6.zip**解壓縮，取出裡面的所有資料(contrib、docs、logs和nginx.exe)，移到Inquire_E-invoice底下，將原本的**全部取代**
+* 如果nginx沒有成功運作【工作管理員中也沒有nginx在執行】，將壓縮檔 **[2]【替換檔】nginx-1.21.6.zip**解壓縮，取出裡面的所有資料(contrib、docs、logs、temp和nginx.exe)，移到Inquire_E-invoice底下，將原本的`刪除後再貼上`【 ***不要***直接貼上按全部取代】
 * 使用瀏覽器開啟 http://127.0.0.1/index.php ，如果有出現PHP Version 8.1.6的內容，表示php也可正常運作
 ## 5. 添加資料庫</br>
 1. 先載好MySQL，MySQL安裝按照此網址去做：
@@ -69,7 +69,7 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
 </br>
 
 # 本次修改
-1. 更正getData的註解錯誤
-2. getData新增是否輸入錯誤ID的判斷，如果是錯誤的，令`$ID_notFond = 1`
-2. 新增`class getAllCompanyID`，可獲取資料庫中所有公司統編
+1. 更正README.md
+2. 將 `[2]【替換檔】nginx-1.21.6.zip`修改【重新從nginx-1.21.6中複製過來】
+3. 將`contrib、docs、logs、temp和nginx.exe`還原成最一開始的樣子【從nginx-1.21.6中複製過來的最初樣子】
 </br>
