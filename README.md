@@ -69,13 +69,8 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
 </br>
 
 # 本次修改
-<<<<<<< HEAD
-1. 把原本在html/底下的php這個資料夾，移到html/miinv底下</br>
-    新的存放.php檔案的資料夾位置為：html/miinv/php
-2. 把原本在html/css底下的`table-Style.css`這個檔案，移到html/miinv/css底下</br>
-
-=======
-1. 將`contrib、docs、logs、temp`這幾個資料夾設定git忽略以避免被系統要求追蹤
-2. 作法與執行過程寫在`將部分檔案移除追蹤作法.docx`
->>>>>>> fifi_2
+1. 增加電子發票查詢頁面的標題圖片
+2. 點到電子發票系統會先到0.00_inquire.html，再輸入要查詢的統編後按submit，會跳到0.00_inquire.php，並輸出表格。
+</br>
+(此作法是為了避免在一開始使用者未輸入統編號碼時，網頁的ID尚未賦值而在網頁上顯示error。)
 </br>

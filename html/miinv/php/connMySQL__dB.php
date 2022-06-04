@@ -3,7 +3,7 @@ class connnect{
     // public >> 可被外部改變預設值的
     public $servername = "localhost";   //host
     public $username = "root";     //使用者名稱
-    public $password = "123456";   //使用者密碼
+    public $password = "vIangr56";   //使用者密碼
     public $database = "inquire_e-invoice";        //選擇資料庫
     //私有成員，必須透過一個開放的函式去傳出一個私有成員的值
     // protected(保護成員)：僅外部程式無法叫用，但物件本體及繼承的子類別均可使用。

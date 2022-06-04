@@ -25,7 +25,7 @@
             /*       Header圖片高度 */
             min-height: 300px;
             /*       Header圖片URL  */
-            background-image: url("./images/banner_bg_img/bg_img_3_charge.png");
+            background-image:linear-gradient(to right,rgba(0,0,0,0.5),rgba(0,0,0,0.3)), url("./images/banner_bg_img/bg_img_0_tax.png");
         }
 
         .related_container {
@@ -63,7 +63,7 @@
     </style>
     <script src="./js/jquery-3.3.1.min.js"></script>
     <script src="./js/bootstrap.js"></script>
-
+    <link rel="stylesheet" href="./css/table-Style.css">
 
 </head>
 
@@ -75,10 +75,56 @@
     <!--    Nav Bar -->
     <script src="./js/header_rwd.js"></script>
     <!--       Header標題名稱 -->
-    <h1>哈囉~</h1>
-
+    <div class="front-images front-title">
+        <hr class="hr_banner_title_top" />
+        <span class="signin_title">
+            電子發票查詢
+        </span>
+        <hr class="hr_banner_title_buttom" />
+    </div>
+    </br>
+    <form  action="./0.00_inquire.php" method="post">
+        <p>請輸入統編: <input type="number" list="taxList" name="taxID" /></p>
+            <datalist id="taxList">
+                <option value="123">
+                <option value="456">
+                <option value="789">
+                <option value="101112">
+            </datalist>
+        <p>請輸入公司名: <input type="text" list="companyList" name="comName" /></p>
+            <datalist id="companyList">
+                <option value="123">
+                <option value="456">
+                <option value="789">
+                <option value="101112">
+            </datalist>
+        <input type="submit" value="Submit" />
+    </form>
+    
+    <!-- <label>統編號碼：</label>
+    <input type="number" placeholder ="請輸入統編">
+    <select id = "list">
+        <option class = "drop-down">test1</option>
+        <option class = "drop-down">test2</option>
+    </select> -->
+    
     <!-- 網頁最下方的神通相關連結 -->
+
     <script type="text/javascript" src="./js/footer.js"></script>
 </body>
 
 </html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <meta http-equiv="refresh" content="0;url=0.00_inquire.php">
+</head>
+<body>
+  
+</body>
+</html> -->
+
