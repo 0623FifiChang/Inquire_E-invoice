@@ -17,7 +17,8 @@
         crossorigin="anonymous">
 
 
-    <link rel="stylesheet" href="./css/table-Style.css">
+
+
     <style>
         .front-images {
 
@@ -60,11 +61,10 @@
             color: #434343;
         }
     </style>
-
-
     <script src="./js/jquery-3.3.1.min.js"></script>
     <script src="./js/bootstrap.js"></script>
-    
+    <link rel="stylesheet" href="./css/table-Style.css">
+
 </head>
 
 <body>
@@ -83,39 +83,49 @@
         <hr class="hr_banner_title_buttom" />
     </div>
     </br>
-    <form action="" method="get" targe="submit">
+    <form action="0.00_inquire.php" method="post">
         <p>請輸入統編: <input type="number" list="taxList" name="taxID" /></p>
             <datalist id="taxList">
-                <option value="497545523">
+                <option value="123">
                 <option value="456">
                 <option value="789">
                 <option value="101112">
             </datalist>
-        <!-- <p>請輸入公司名: <input type="text" list="companyList" name="comName" /></p>
+        <p>請輸入公司名: <input type="text" list="companyList" name="comName" /></p>
             <datalist id="companyList">
                 <option value="123">
                 <option value="456">
                 <option value="789">
                 <option value="101112">
-            </datalist> -->
-        <input type="submit" value="Submit"/> 
+            </datalist>
+        <input type="submit" value="Submit" />
     </form>
-
+    
     <?php 
     include "php/tabulation.php";
-    if($_GET["taxID"]){
-        $ID = $_GET["taxID"];            
-        $tabulation = new tabulation($ID);
-        if($tabulation->ID_notFond == 1){
-            echo "<h2>此ID不存在，請重新輸入</h2>";
-        }else{
-            $tabulation->make_table();
-        }    
+    
+    $ID = $_POST["taxID"];
+        
+    $tabulation = new tabulation($ID);
+
+    if($tabulation->ID_notFond == 1){
+        echo "此ID不存在，請重新輸入";
+    }else{
+        $tabulation->make_table();
     }
-    echo "<p></p><p></p>";//增加與底下的間距
-    ?>    
+    
+
+
+    ?>
+    <!-- <label>統編號碼：</label>
+    <input type="number" placeholder ="請輸入統編">
+    <select id = "list">
+        <option class = "drop-down">test1</option>
+        <option class = "drop-down">test2</option>
+    </select> -->
     
     <!-- 網頁最下方的神通相關連結 -->
+
     <script type="text/javascript" src="./js/footer.js"></script>
 </body>
 

@@ -17,7 +17,7 @@ document.writeln("            <div class=\'row justify-content-end\'>");
 document.writeln("                <div class=\'col\'>");
 document.writeln("                    <ul class=\'navbar-nav mr-auto justify-content-end\'>");
 document.writeln("                        <li class=\'nav-item\'>");
-document.writeln("                            <a class=\'nav-link nav_bar_size\' href=\'./0.00_inquire.php?taxID\'>電子發票查詢</a>");
+document.writeln("                            <a class=\'nav-link nav_bar_size\' href=\'./0.00_inquire.html\'>電子發票查詢</a>");
 document.writeln("                        </li>");
 document.writeln("                        <li class=\'nav-item\'>");
 document.writeln("                            <a class=\'nav-link nav_bar_size\' href=\'./3.0_charge.html\'>費用說明</a>");

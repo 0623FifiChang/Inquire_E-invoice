@@ -6,7 +6,7 @@
 include 'connMySQL__dB.php';
 class getAllCompanyID extends connnect{
     
-    protected $AllCompanyID = array();
+    protected $AllCompanyID;
     
     //建構子    【建立此物件時預設會先自動執行的C函式】 //物件class中，函數名稱為__construct()代表是建構子    
     function __construct(){     
@@ -19,41 +19,39 @@ class getAllCompanyID extends connnect{
         //取出所有公司的sql語法  
         $sql_AllCompanyID = "SELECT DISTINCT `company_compilation`	
                             FROM `data_of_e-invoice`";
-        $AllID = mysqli_query($this->link_connMySQL, $sql_AllCompanyID);
+        $this->AllCompanyID = mysqli_query($this->link_connMySQL, $sql_AllCompanyID);
 
         
         //資料取得完畢，關閉資料庫
         mysqli_close($this->link_connMySQL);
-        echo "<h1>物件getData ->關閉MySQL的連線</h1>";   
-        //將取得的資料轉存到>AllCompanyID陣列中儲存   
-        $i = 0;
-        if (mysqli_num_rows($AllID) > 0) {  // mysqli_num_rows() 函数返回结果集中行的数量。     
-            while ($row = mysqli_fetch_assoc($AllID)) {  //mysqli_fetch_assoc() 函数从结果集中取得一行作为关联数组。
-                $this->AllCompanyID[$i++] = $row["company_compilation"];
-            }
-        }else{
-            echo "未取得任何資料";
-        }
+        echo "<h1>物件getData ->關閉MySQL的連線</h1>";        
     }
 
-    
+    /*
     // 當此類別變成被繼承的父類別，protected(保護成員)$AllCompanyID可直接被引用
     // 為了使非getAllCompanyID的子類別(外部程式)也可使用AllCompanyID，可添加以下method
     //方法method 1
     function getAllID(){
         return $this->AllCompanyID;
     }
-    
+    */
 }
 
 
 /*
-//測試物件getAllCompanyID
+//測試物件getAllCompanyID【需將method 1解註解】
 $getAllCompanyID = new getAllCompanyID();
 $AllCompanyID = $getAllCompanyID->getAllID();
-echo ">>".$AllCompanyID[0]."</br>";
-echo ">>".$AllCompanyID[1]."</br>";
-echo ">>".$AllCompanyID[2]."</br>";
-echo ">>".$AllCompanyID[3]."</br>";
+
+//表格製作
+echo "<table>";
+if (mysqli_num_rows($AllCompanyID) > 0) { // 如果結果的row數大於0，表示有資料，將資料印出         
+    while ($row = mysqli_fetch_assoc($AllCompanyID)) {
+    echo "<tr>";
+            echo "<td>" . $row["company_compilation"] . "</td>";
+    echo "</tr>";
+    }
+}
+echo "</table>";
 */
 ?>
