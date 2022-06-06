@@ -4,48 +4,49 @@ font-size: 字體大小設定
 padding: 內距的設定
 border: 邊框設定
 */
-  html {
-    font-family: sans-serif;  
-  }
+html {
+  font-family: sans-serif;  
+}
 
 
-  table {
-    border-collapse: collapse;  /*表格的边框：在合并（collapsed）模式下，相邻单元格共享边框。   分隔模式(separate)下，相邻的单元格都拥有独立的边框。*/
-    border: 2px solid rgb(54, 31, 0);   /* 整個table外四周邊框的 粗細 & 顏色 */
-    letter-spacing: 1px; 
+table.tabulation {
+  display: table;
+  border-collapse: collapse;  /*表格的边框：在合并（collapsed）模式下，相邻单元格共享边框。   分隔模式(separate)下，相邻的单元格都拥有独立的边框。*/
+  border: 2px solid rgb(54, 31, 0);   /* 整個table外四周邊框的 粗細 & 顏色 */
+  letter-spacing: 1px; 
+  width:800px;
 
-    margin:0 auto;  /* 使表格於網頁中置中 */
-  }
+  margin:0 auto;  /* 使表格於網頁中置中 */
+}
 
-  caption { /*表格標題*/
-    text-align: center; /*文字置中*/
-    font-size: 30px;
-  }
+.header1 { /*表格標題*/
+  display: table-caption;
+  text-align: center; /*文字置中*/
+  font-size: 60px;
+  color: #000000;
+  caption-side: top;
+}
+
+td, th {
+  font-size: 16px;
+  text-align: center; /*文字置中*/
+  border: 1px solid rgb(70, 35, 7);   /* 邊框的顏色 */
+  /* padding: 20px 50px; padding: *//*上下距(px) 左右距離(px); */    
+  padding: 20px; /*文字的上下距(px) */
+}
+
+.column1, .column2{ /* 直列1、2設定*/
+  width: 150px;
+}
+
+th {
+  background-color: rgb(255, 224, 166);
+}
   
-  td, th {
-    font-size: 16px;
-    text-align: center; /*文字置中*/
-    border: 1px solid rgb(70, 35, 7);   /* 邊框的顏色 */
-    /* padding: 20px 50px; padding: *//*上下距(px) 左右距離(px); */    
-    padding: 20px; /*文字的上下距(px) */
-  }
+tr:nth-child(even) td { /*偶數行(tr)設定*/
+  background-color: rgb(250,250,250);
+}
 
-  .column1, .column2{ /* 直列1、2設定*/
-    width: 60px;
-  }
-  .column3{           /* 直列3設定*/
-    width: 170px;
-  }
-  
-  th {
-    background-color: rgb(255, 224, 166);
-  }
-    
-  tr:nth-child(even) td { /*偶數行(tr)設定*/
-    background-color: rgb(250,250,250);
-  }
-  
-  tr:nth-child(odd) td {  /*奇數行(tr)設定*/
-    background-color: rgb(245,245,245);
-  }
- 
+tr:nth-child(odd) td {  /*奇數行(tr)設定*/
+  background-color: rgba(243, 242, 234, 0.973);
+}
