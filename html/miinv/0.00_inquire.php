@@ -24,7 +24,7 @@
             /*       Header圖片高度 */
             min-height: 300px;
             /*       Header圖片URL  */
-            background-image: url("./images/banner_bg_img/bg_img_3_charge.png");
+            background-image:linear-gradient(to right,rgba(0,0,0,0.5),rgba(0,0,0,0.3)), url("./images/banner_bg_img/bg_img_0_tax.png");
         }
 
         .related_container {
@@ -112,7 +112,7 @@
             $tabulation->make_table();
         }    
     }
-    echo "<p></p>";//增加與底下的間距
+    echo "<p></p><p></p>";//增加與底下的間距
     ?>    
     
     <!-- 網頁最下方的神通相關連結 -->
