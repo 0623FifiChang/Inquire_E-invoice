@@ -75,6 +75,6 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
     * 修改0.00_inquire.php，從使用POST方法接收訊息改成使用 `GET方法` 接收訊息
     * 修改header_rwd.js，將電子發票查詢所連結的網頁改成 `0.00_inquire.php?taxID` 【預設一開始GET方法接收到的taxID訊息就是NULL】
 3. 修正繪出的表格的標題位於表格底下的問題（原因：CSS的權重問題），並將表格的樣式做些微調【修改tabulation.php與table-Style.css】</br>
-將表格標題做一個class
+將表格標題做一個class類別來設定caption-side，
 4. 修改物件`getAllCompanyID`使其可以將收到的公司統編資料以`陣列`形式取得
 </br>
