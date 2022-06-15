@@ -70,5 +70,5 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
 </br>
 
 # 本次修改
-1. 將會顯示在網頁上的輔助文字刪除
+1. 表格加上滑鼠特效(css)
 </br>
