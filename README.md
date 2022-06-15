@@ -70,6 +70,5 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
 </br>
 
 # 本次修改
-1. 下拉式選單的內容由資料庫內取得
-2. 將getAllCompanyID.php中的內容合併至getData.php中
+1. 將會顯示在網頁上的輔助文字刪除
 </br>

@@ -12,7 +12,7 @@ class getData extends connnect{
 
     //建構子    【建立此物件時預設會先自動執行的C函式】 //物件class中，函數名稱為__construct()代表是建構子    
     function __construct($comyanyID){     
-        echo "<h1>物件getData ->開啟MySQL的連線</h1>";
+        // echo "<h1>物件getData ->開啟MySQL的連線</h1>";
         
         // 注意：php中，子類別繼承父類別後，父類別的建解構子都不會被執行
         // 子類別要執行父類別的建解構子，就要特別叫用，使用 parent:: 保留字
@@ -43,7 +43,7 @@ class getData extends connnect{
                 
         //資料取得完畢，關閉資料庫
         mysqli_close($this->link_connMySQL);
-        echo "<h1>物件getData ->關閉MySQL的連線</h1>";
+        // echo "<h1>物件getData ->關閉MySQL的連線</h1>";
         
     }
 
@@ -89,7 +89,7 @@ class getAllCompanyID extends connnect{
     
     //建構子    【建立此物件時預設會先自動執行的C函式】 //物件class中，函數名稱為__construct()代表是建構子    
     function __construct(){     
-        echo "<h1>物件getData ->開啟MySQL的連線</h1>";        
+         echo "<h1>物件getData ->開啟MySQL的連線</h1>";        
         // 注意：php中，子類別繼承父類別後，父類別的建解構子都不會被執行
         // 子類別要執行父類別的建解構子，就要特別叫用，使用 parent:: 保留字
         parent::__construct();  //呼叫執行父類別的建構子    
@@ -103,7 +103,7 @@ class getAllCompanyID extends connnect{
         
         //資料取得完畢，關閉資料庫
         mysqli_close($this->link_connMySQL);
-        echo "<h1>物件getData ->關閉MySQL的連線</h1>";   
+         echo "<h1>物件getData ->關閉MySQL的連線</h1>";   
         //將取得的資料轉存到>AllCompanyID陣列中儲存   
         $i = 0;
         if (mysqli_num_rows($AllID) > 0) {  // mysqli_num_rows() 函数返回结果集中行的数量。     

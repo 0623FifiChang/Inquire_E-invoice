@@ -19,14 +19,14 @@ class connnect{
         if ($this->link_connMySQL ->connect_error) {
             return "MySQL连接失败: " . $this->link_connMySQL ->connect_error;    // die()：終止程序
         } 
-        echo "MySQL连接成功</br>";
+        // echo "MySQL连接成功</br>";
 
         //選擇要使用的資料庫
         $this->link_connDatabase = mysqli_select_db($this->link_connMySQL, $this->database);   //選擇資料庫
         if(!$this->link_connDatabase){
             return "無法開啟資料庫";
         }
-        echo "資料庫".$this->database."已經選擇，可以使用該資料庫了</br>";
+        // echo "資料庫".$this->database."已經選擇，可以使用該資料庫了</br>";
     }
     
     /*  【將此類別變成被繼承的父類別，protected(保護成員)$link_connMySQL、$link_connDatabase就可直接被引用】
