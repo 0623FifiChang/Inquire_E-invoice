@@ -70,11 +70,6 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
 </br>
 
 # 本次修改
-1. 修改README.md說明
-2. 修改第一次輸入統編查詢需要跳轉網頁的問題【改成只會再0.00_inquire.php中執行】
-    * 修改0.00_inquire.php，從使用POST方法接收訊息改成使用 `GET方法` 接收訊息
-    * 修改header_rwd.js，將電子發票查詢所連結的網頁改成 `0.00_inquire.php?taxID` 【預設一開始GET方法接收到的taxID訊息就是NULL】
-3. 修正繪出的表格的標題位於表格底下的問題（原因：CSS的權重問題），並將表格的樣式做些微調【修改tabulation.php與table-Style.css】</br>
-將表格標題做一個class類別來設定caption-side:top
-4. 修改物件`getAllCompanyID`使其可以將收到的公司統編資料以`陣列`形式取得
+1. 下拉式選單的內容由資料庫內取得
+2. 將getAllCompanyID.php中的內容合併至getData.php中
 </br>

@@ -86,10 +86,16 @@
     <form action="" method="get">
         <p>請輸入統編: <input type="number" list="taxList" name="taxID" /></p>
             <datalist id="taxList">
-                <option value="497545523">
-                <option value="456">
-                <option value="789">
-                <option value="101112">
+            <?php
+                include "php/tabulation.php";
+                $getAllCompanyID = new getAllCompanyID();
+                $AllCompanyID = $getAllCompanyID->getAllID();
+                $i=0;
+                while($i <count($AllCompanyID)){
+                echo '<option value="' ,$AllCompanyID[$i] ,'"></option>';
+                $i++;
+                }
+            ?>
             </datalist>
         <!-- <p>請輸入公司名: <input type="text" list="companyList" name="comName" /></p>
             <datalist id="companyList">
@@ -102,7 +108,6 @@
     </form>
 
     <?php 
-    include "php/tabulation.php";
     if($_GET["taxID"]){
         $ID = $_GET["taxID"];            
         $tabulation = new tabulation($ID);
