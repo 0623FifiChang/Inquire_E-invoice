@@ -63,7 +63,7 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
     $password = "123456";   //使用者密碼
     ```
 ## 7. 連結MySQL的資料庫確認
-使用瀏覽器開啟 http://localhost/php/test.php，如果畫面能正常顯示"正光雕刻工廠"的資料，表示成功連接資料庫
+使用瀏覽器開啟 http://localhost/php/test.php ，如果畫面能正常顯示"正光雕刻工廠"的資料，表示成功連接資料庫
 
 # 本次修改
 1. 修改README說明
