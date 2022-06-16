@@ -32,6 +32,16 @@ html {
     max-width: 540px;
   }
 }
+.inputTuple{
+  margin-right:  5px;
+  margin-left:  5px;
+}
+.inputFrame{
+  padding: 0px 0px 0px 0px;
+  margin-right:  auto;
+  margin-left:  auto;
+  text-align:center;
+}
 
 @media (min-width: 768px) {
   .container {

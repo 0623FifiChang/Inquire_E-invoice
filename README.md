@@ -31,9 +31,9 @@ extension_dir = "C:\Users\admin\Desktop\Inquire_E-invoice\php\ext"
 將雙引號中間的路徑，改為自己的 <font color="red">**ext資料夾的絕對路徑**</font>
 ## 4.php-cgi啟動
 
-1. 開命令提示符(cmd)進入php資料夾</br>
+1. 開命令提示符(cmd)進入Inquire_E-invoice底下的php資料夾</br>
     ```
-    cd  C:\Users\admin\Desktop\nginx-1.21.6\php
+    cd  C:\Users\admin\Desktop\Inquire_E-invoice\php
     ```
 2. 在此位置執行以下命令，啟動php-cgi</br>
 以下兩種指令二擇一，第二種方法的路徑須改為自己的php.ini檔的絕對路徑
@@ -41,7 +41,7 @@ extension_dir = "C:\Users\admin\Desktop\Inquire_E-invoice\php\ext"
     php-cgi.exe -b 127.0.0.1:9000
     ```
     ```
-    php-cgi.exe -b 127.0.0.1:9000 -c C:\Users\admin\Desktop\nginx-1.21.6\php\php.ini
+    php-cgi.exe -b 127.0.0.1:9000 -c C:\Users\admin\Desktop\Inquire_E-invoice\php\php.ini
     ```
 
 ## 5.  nginx、php運作確認
@@ -52,7 +52,7 @@ extension_dir = "C:\Users\admin\Desktop\Inquire_E-invoice\php\ext"
 1. 先載好MySQL，MySQL安裝按照此網址去做：
 https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-install-steps/
 
-2. 在MySQL建置了一個資料庫inquire_e-invoice，並在此資料庫放入我所需的data</br>
+2. 在MySQL建置了一個資料庫inquire_e-invoice，並在此資料庫放入所需的data</br>
 
     1. 將 **Inquire_E-invoice\\[1]Nginx+php+MySQL結合過程**  資料夾內的 **將data放到MySQL的指令.txt** 開啟</br>
     1. Alt+A 複製所有指令，貼到MySQL上，一次執行所有指令，這將會建立置了一個資料庫inquire_e-invoice，並在此資料庫放入所需的data
@@ -63,12 +63,12 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
     $password = "123456";   //使用者密碼
     ```
 ## 7. 連結MySQL的資料庫確認
-使用瀏覽器開啟 http://localhost/php/test.php ，如果畫面顯示</br>
-「MySQL连接成功</br>
-資料庫inquire_e-invoice已經選擇，可以使用該資料庫了」</br>
-表示成功連結資料庫
-</br>
+使用瀏覽器開啟 http://localhost/php/test.php，如果畫面能正常顯示"正光雕刻工廠"的資料，表示成功連接資料庫
 
 # 本次修改
-1. 表格加上滑鼠特效(css)
+1. 修改README說明
+2. 增加網站內副標題
+3. 使表格下端與底部空白處增加
+4. 美化網站
+5. 增加網站下方連結
 </br>

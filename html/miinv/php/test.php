@@ -10,7 +10,7 @@
   放上首頁介紹的資料</br></br>
   <?php 
   include "tabulation.php";
-  $ID = 497545523;
+  $ID = 49754552;
   $tabulation = new tabulation($ID);
 
   if($tabulation->ID_notFond == 1){

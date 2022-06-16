@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/bootstrap-customize.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-grid.css" />
     <link rel="stylesheet" href="./css/bootstrap-grid.min.css" />
     <link rel="stylesheet" href="./css/bootstrap-customize.css" />
     <link rel="stylesheet" href="./css/headerstyle.css" />
@@ -59,6 +60,9 @@
         .related_text {
             color: #434343;
         }
+        .block{
+            padding: 0px 0px 140px 0px;
+        }
     </style>
 
 
@@ -82,30 +86,35 @@
         </span>
         <hr class="hr_banner_title_buttom" />
     </div>
-    </br>
-    <form action="" method="get">
-        <p>請輸入統編: <input type="number" list="taxList" name="taxID" /></p>
-            <datalist id="taxList">
-            <?php
-                include "php/tabulation.php";
-                $getAllCompanyID = new getAllCompanyID();
-                $AllCompanyID = $getAllCompanyID->getAllID();
-                $i=0;
-                while($i <count($AllCompanyID)){
-                echo '<option value="' ,$AllCompanyID[$i] ,'"></option>';
-                $i++;
-                }
-            ?>
-            </datalist>
-        <!-- <p>請輸入公司名: <input type="text" list="companyList" name="comName" /></p>
-            <datalist id="companyList">
-                <option value="123">
-                <option value="456">
-                <option value="789">
-                <option value="101112">
-            </datalist> -->
-        <input type="submit" value="Submit"/> 
-    </form>
+    
+    <div class="container related_container">
+        <div class="container">
+            <h3 class="blue_index_title text-center mt-5">每月開立發票張數查詢</h3>
+            <form action="" method="get">
+                <div class = "inputFrame">
+                    <span class = "inputTuple">
+                        <h5 class="case_subtitle mt-5 text-center">請輸入統編： <input type="number" list="taxList" name="taxID" />
+                            <datalist id="taxList">
+                            <?php
+                                include "php/tabulation.php";
+                                $getAllCompanyID = new getAllCompanyID();
+                                $AllCompanyID = $getAllCompanyID->getAllID();
+                                $i=0;
+                                while($i <count($AllCompanyID)){
+                                echo '<option value="' ,$AllCompanyID[$i] ,'"></option>';
+                                $i++;
+                                }
+                            ?>
+                            </datalist>
+                    </span>
+                    <span class = "inputTuple">
+                        <input type="submit" value="Submit"/></h5>
+                        <!-- <input type="submit" value="Submit"/> -->
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <?php 
     if($_GET["taxID"]){
@@ -117,7 +126,7 @@
             $tabulation->make_table();
         }    
     }
-    echo "<p></p><p></p>";//增加與底下的間距
+    // echo "<p></p><p></p>";//增加與底下的間距
     ?>
     
     

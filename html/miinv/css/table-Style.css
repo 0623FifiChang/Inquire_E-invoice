@@ -16,7 +16,7 @@ table.tabulation {
   letter-spacing: 1px; 
   width:800px;
 
-  margin:0 auto;  /* 使表格於網頁中置中 */
+  margin:0 auto;  /* 使表格於網頁中置中 */ 
 }
 
 .header1 { /*表格標題*/
