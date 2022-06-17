@@ -121,7 +121,9 @@
         $ID = $_GET["taxID"];            
         $tabulation = new tabulation($ID);
         if($tabulation->ID_notFond == 1){
-            echo "此ID不存在，請重新輸入";
+            echo "<div class = "."inputFrame".">";
+            echo "<h5 class="."case_subtitle mt-5 text-center".">此ID不存在，請重新輸入</h5>";
+            echo "</div>";
         }else{
             $tabulation->make_table();
         }    

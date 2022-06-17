@@ -66,9 +66,6 @@ https://clay-atlas.com/blog/2019/11/16/mysql-mysqlworkbench-tutorial-download-in
 使用瀏覽器開啟 http://localhost/php/test.php ，如果畫面能正常顯示"正光雕刻工廠"的資料，表示成功連接資料庫
 
 # 本次修改
-1. 修改README說明
-2. 增加網站內副標題
-3. 使表格下端與底部空白處增加
-4. 美化網站
-5. 增加網站下方連結
+1. 修改輸入錯誤時出現的「此ID不存在，請重新輸入」這串字的位置，從靠左變成置中
+2. 新增報告PPT
 </br>
